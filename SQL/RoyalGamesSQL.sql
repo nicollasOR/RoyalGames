@@ -1,4 +1,4 @@
-CREATE DATABASE RoyalGamesDB
+CREATE DATABASE RoyalGames
 GO
 
 USE RoyalGamesDB
@@ -49,7 +49,6 @@ Classificacao VARCHAR(50) NOT NULL
 
 GO
 
-Nome, Descrição, Preco, 
 
 CREATE TABLE Jogo
 (
@@ -119,6 +118,7 @@ CREATE TABLE JogoPromocao
 (
 	JogoIdFK INT NOT NULL,
 	PromocaoIdFK INT NOT NULL,
+	PrecoAtual DECIMAL(10,2) NOT NULL,
 	CONSTRAINT Jogo_Promocao_Id_FK PRIMARY KEY(JogoIdFK, PromocaoIdFK),
 
 	CONSTRAINT FK_JogoPromocao_Jogo FOREIGN KEY(JogoIdFK) REFERENCES Jogo(JogoId) ON DELETE CASCADE,
@@ -126,8 +126,6 @@ CREATE TABLE JogoPromocao
 );
 GO
 
-ALTER TABLE JogoPromocao
-ADD PrecoAtual DECIMAL(10,2) NOT NULL
 
 create trigger trg_excluirJogo
 ON Jogo
@@ -202,4 +200,3 @@ VALUES
 
 SELECT * FROM Jogo 
 SELECT * FROM Promocao
-
