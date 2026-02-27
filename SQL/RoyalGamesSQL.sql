@@ -1,8 +1,5 @@
-CREATE DATABASE RoyalGames
-GO
-
-USE RoyalGamesDB
-GO
+create database Royal_Gamess
+use Royal_Gamess
 
 CREATE TABLE Usuario
 (
@@ -27,7 +24,7 @@ CREATE TABLE Promocao
 (
 	PromocaoId INT IDENTITY PRIMARY KEY,
 	Nome VARCHAR(50) NOT NULL,
-	DataExpiraÁ„o DATETIME NOT NULL,
+	DataExpira√ß√£o DATETIME NOT NULL,
 	StatusPromocao BIT NOT NULL
 );
 
@@ -54,7 +51,7 @@ CREATE TABLE Jogo
 (
 JogoId INT IDENTITY PRIMARY KEY,
 Nome VARCHAR(150),
-DescriÁ„o NVARCHAR(255),
+Descri√ß√£o NVARCHAR(255),
 Preco DECIMAL(10,2),
 StatusJogo BIT DEFAULT 1
 --PlataformaIdFK INT NOT NULL,
@@ -163,18 +160,22 @@ AS BEGIN
 	('Carlos Lima', 'carlos@vhburguer.com', HASHBYTES('SHA2_256', 'admin@123'));
 GO
 
-INSERT INTO Plataforma(Nome)
+INSERT INTO Plataforma(Nome,Genero)
 VALUES
-('Nintendo'),
-('PS4'),
-('Xbox One')
+('Nintendo','Console'),
+('PS4', 'Console'),
+('Xbox One', 'Console')
 GO
 
 SELECT * FROM Usuario
 
-INSERT INTO Jogo(Nome, DescriÁ„o, Preco, StatusJogo, Imagem)
+INSERT INTO Jogo(Nome, Descri√ß√£o, Preco, StatusJogo, Imagem)
 VALUES
 ('Dying Light', 'Jogo de zumbi com parkour tmj', 155.99, 1, CONVERT(VARBINARY(MAX), 'imagem aleatoria'))
+
+ALTER TABLE Jogo
+ADD Imagem VARBINARY(MAX) NOT NULL;
+go
 
 INSERT INTO Genero(Nome)
 VALUES
@@ -190,13 +191,10 @@ VALUES
 ('Livre'),
 ('Para maiores de 18')
 
-INSERT INTO Promocao(Nome, DataExpiraÁ„o, StatusPromocao)
+INSERT INTO Promocao(Nome, DataExpira√ß√£o, StatusPromocao)
 VALUES
-('Doming„o do Royalzao', '2026-05-30' , 1)
+('Doming√£o do Royalzao', '2026-05-30' , 1)
 
 INSERT INTO JogoPromocao(JogoIdFK, PromocaoIdFK, PrecoAtual)
 VALUES
 (1, 1, 100.99)
-
-SELECT * FROM Jogo 
-SELECT * FROM Promocao
