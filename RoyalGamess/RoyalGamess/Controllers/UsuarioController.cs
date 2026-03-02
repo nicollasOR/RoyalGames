@@ -88,7 +88,7 @@ namespace RoyalGamess.Controllers
             try
             {
                 _service.Remover(id);
-                return Ok();
+                return Ok(id);
             }
             catch (Exception ex)
             {

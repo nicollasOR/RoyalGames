@@ -115,7 +115,7 @@ namespace RoyalGamess.Services
         }
         public void Remover(int id)
         {
-            Usuario usuario = _repository.ObterPorId(id);
+            Usuario? usuario = _repository.ObterPorId(id);
             if (usuario == null)
             {
                 throw new DomainException("Usuário não encontrado!");
