@@ -1,6 +1,6 @@
 ﻿using RoyalGamess.Contexts;
 using RoyalGamess.Interfaces;
-using RoyalGamess.Domains
+using RoyalGamess.Domains;
 
 namespace RoyalGamess.Repositorys
 {
@@ -33,7 +33,21 @@ namespace RoyalGamess.Repositorys
         {   _context.Usuario.Add(usuario);
             _context.SaveChanges();
         }
+        public void Atualizar (Usuario usuario)
+        {
+            _context.Usuario.Update(usuario);
+            _context.SaveChanges();
+        }
+        public void Remover (int id)
+        {
+            Usuario? usuario = _context.Usuario.FirstOrDefault(usuario => usuario.UsuarioId == id);
+            if (usuario != null)
+            {
+                return;
+            }
+            _context.Usuario.Remove(usuario);
+            _context.SaveChanges();
+        }
 
-
-}
+    }
 }
