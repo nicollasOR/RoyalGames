@@ -7,10 +7,10 @@ using System.Text;
 
 namespace RoyalGamess.Aplications.Autenticacao
 {
-    public class GerarAutenticacao
+    public class GeradorTokenJWT
     {
         private readonly IConfiguration _config;
-        public GerarAutenticacao(IConfiguration configuration)
+        public GeradorTokenJWT(IConfiguration configuration)
         {
             _config = configuration;
         }

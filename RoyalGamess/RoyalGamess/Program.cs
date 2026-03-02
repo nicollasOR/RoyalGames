@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using RoyalGamess.Aplications.Autenticacao;
 using RoyalGamess.Contexts;
 using RoyalGamess.Interfaces;
 using RoyalGamess.Repositorys;
@@ -50,6 +51,9 @@ builder.Services.AddDbContext<Royal_GamessContext>(options => options.UseSqlServ
 // Usuário
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<UsuarioService>();
+//AutenticaçãoJwt
+builder.Services.AddScoped<AutenticacaoService>();
+builder.Services.AddScoped<GeradorTokenJWT>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
      .AddJwtBearer(options =>
