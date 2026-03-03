@@ -75,8 +75,36 @@ namespace RoyalGamess.Controllers
             }
         }
 
-        [HttpPut]
-        public ActionResult <LerGeneroDto> Ata
+        [HttpPut("{id}")]
+        [Authorize]
+        public ActionResult <LerGeneroDto> Atualizar(int id, CriarGeneroDto criarDto)
+        {
+        try
+        {
+            LerGeneroDto genero = _service.Adicionar(id, criarDto);
+            return StatusCode(200, genero);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        }
+        
 
-    }
+        [HttpDelete("{id}")]
+        [Authorize]
+        public ActionResult <LerGeneroDto> Remover(int id)
+        {
+            try
+            {
+            LerGeneroDto genero = _service.Remover(id);
+            return StatusCode(200, id);
+            }
+
+            catch(Exception ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+        }
 }
