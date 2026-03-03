@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RoyalGamess.Aplications.Autenticacao;
+using RoyalGamess.Aplications.Services;
 using RoyalGamess.Contexts;
 using RoyalGamess.Interfaces;
 using RoyalGamess.Repositorys;
-using RoyalGamess.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -54,6 +54,9 @@ builder.Services.AddScoped<UsuarioService>();
 //AutenticaçãoJwt
 builder.Services.AddScoped<AutenticacaoService>();
 builder.Services.AddScoped<GeradorTokenJWT>();
+//promocao
+builder.Services.AddScoped<IPromocaoRepository, PromocaoRepository>();
+builder.Services.AddScoped<PromocaoService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
      .AddJwtBearer(options =>

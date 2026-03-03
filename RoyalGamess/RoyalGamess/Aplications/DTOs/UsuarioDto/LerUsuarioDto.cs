@@ -1,4 +1,4 @@
-﻿namespace RoyalGamess.DTOs.UsuarioDto
+﻿namespace RoyalGamess.Aplications.DTOs.UsuarioDto
 {
     public class LerUsuarioDto
     {

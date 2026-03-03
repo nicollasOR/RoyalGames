@@ -1,12 +1,12 @@
-﻿using RoyalGamess.Domains;
-using RoyalGamess.DTOs.UsuarioDto;
+﻿using RoyalGamess.Aplications.DTOs.UsuarioDto;
+using RoyalGamess.Domains;
 using RoyalGamess.Exceptions;
 using RoyalGamess.Interfaces;
 using System.Runtime.Intrinsics.Arm;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace RoyalGamess.Services
+namespace RoyalGamess.Aplications.Services
 {
     public class UsuarioService
     {
@@ -102,7 +102,7 @@ namespace RoyalGamess.Services
                 throw new DomainException("Usuário não encontrado!");
             }
             ValidarEmail(criarDto.Email);
-            Usuario usuarioDto = _repository.ObterPorEmail(criarDto.Email);
+            Usuario? usuarioDto = _repository.ObterPorEmail(criarDto.Email);
             if (usuarioDto != null && usuarioDto.UsuarioId != id)
             {
                 throw new DomainException("Usuário Inexistente!");

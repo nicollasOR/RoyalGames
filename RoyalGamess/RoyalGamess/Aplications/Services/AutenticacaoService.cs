@@ -1,9 +1,9 @@
 ﻿using RoyalGamess.Aplications.Autenticacao;
+using RoyalGamess.Aplications.DTOs.AutenticacaoDto;
 using RoyalGamess.Domains;
-using RoyalGamess.DTOs.AutenticacaoDto;
 using RoyalGamess.Interfaces;
 
-namespace RoyalGamess.Services
+namespace RoyalGamess.Aplications.Services
 {
     public class AutenticacaoService
     {

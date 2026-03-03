@@ -1,4 +1,4 @@
-﻿namespace RoyalGamess.DTOs.AutenticacaoDto
+﻿namespace RoyalGamess.Aplications.DTOs.AutenticacaoDto
 {
     public class LoginDto
     {

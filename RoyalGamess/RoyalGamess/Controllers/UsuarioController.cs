@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RoyalGamess.DTOs.UsuarioDto;
-using RoyalGamess.Services;
+using RoyalGamess.Aplications.DTOs.UsuarioDto;
+using RoyalGamess.Aplications.Services;
 
 namespace RoyalGamess.Controllers
 {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RoyalGamess.DTOs.AutenticacaoDto;
+using RoyalGamess.Aplications.DTOs.AutenticacaoDto;
+using RoyalGamess.Aplications.Services;
 using RoyalGamess.Exceptions;
-using RoyalGamess.Services;
 
 namespace RoyalGamess.Controllers
 {
