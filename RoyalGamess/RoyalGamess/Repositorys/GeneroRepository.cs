@@ -1,0 +1,88 @@
+﻿using Microsoft.EntityFrameworkCore;
+using RoyalGamess.Contexts;
+using RoyalGamess.Domains;
+using RoyalGamess.Exceptions;
+using RoyalGamess.Interfaces;
+
+namespace RoyalGamess.Repositorys
+{
+    public class GeneroRepository :  IGeneroRepository
+    {
+
+        private readonly Royal_GamessContext _context;
+
+        public GeneroRepository(Royal_GamessContext context)
+        {
+            _context = context;
+        }
+
+        public List<Genero> Listar()
+        {
+            return _context.Genero.ToList();
+        }
+
+        public Genero ObterPorId(int id)
+        {
+            //Genero? genero =_context.Genero.Include(genero => genero.)
+            return _context.Genero.FirstOrDefault(generoId => generoId.GeneroId == id);
+
+        }
+
+        public Genero ObterPorNome(string nomeGenero)
+        {
+            return _context.Genero.FirstOrDefault(generoNome => generoNome.Nome == nomeGenero);
+        }
+
+        //public bool NomeGeneroExiste(string generoNome, int? generoIdAtual = null)
+        //{
+
+        //    var generoConsultado = _context.Genero.AsQueryable();
+
+        //    if (generoIdAtual.HasValue)
+        //    {
+        //        generoConsultado = generoConsultado.Where(generoId => generoId.GeneroId != generoIdAtual);
+        //        return generoConsultado.Any(genero => genero.Nome == generoNome);
+        //    }
+
+        //    return _context.Genero.Any(generoNomeC => generoNomeC.Nome = generoNome);
+        //}
+
+        public bool NomeGeneroExiste(string nomeGenero)
+        {
+            return _context.Genero.Any(nomeG => nomeG.Nome == nomeGenero);
+        }
+
+        public void Adicionar(Genero genero)
+        {
+            _context.Genero.Add(genero);
+            _context.SaveChanges();
+        }
+
+        public void Atualizar(Genero genero)
+        {
+            Genero? generoBanco = _context.Genero.FirstOrDefault(generoId => generoId.GeneroId == genero.GeneroId);
+            if(generoBanco == null)
+            {
+                return;
+            }
+
+            generoBanco.Nome = genero.Nome;
+
+            _context.SaveChanges();
+        }
+
+        public void Remover(int id)
+        {
+            Genero? generoBanco = _context.Genero.FirstOrDefault(generoId => generoId.GeneroId == id);
+
+            if(generoBanco == null)
+            {
+                return;
+            }
+
+            _context.Genero.Remove(generoBanco);
+            _context.SaveChanges();
+        }
+    }
+
+}

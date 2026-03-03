@@ -1,0 +1,11 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace RoyalGamess.Domains;
+
+public partial class ClassificacaoIndicativa
+{
+    public int ClassificacaoIndicativaId { get; set; }
+
+    public string Classificacao { get; set; } = null!;
+}
