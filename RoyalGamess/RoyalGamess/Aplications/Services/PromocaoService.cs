@@ -70,7 +70,7 @@ namespace RoyalGamess.Aplications.Services
             _repository.Adicionar(promo);
             return LerDto(promo);
         }
-        public void Atualizar(int id, CriarPromocaoDto criarDto)
+        public LerPromocaoDto Atualizar(int id, CriarPromocaoDto criarDto)
         {
             ValidarNome(criarDto.Nome);
             Promocao? promoBanco = _repository.ObterPorId(id);
@@ -86,6 +86,7 @@ namespace RoyalGamess.Aplications.Services
             promoBanco.DataExpiração = criarDto.DataExpiracao;
             promoBanco.StatusPromocao = criarDto.StatusPromocao;
             _repository.Atualizar(id,promoBanco);
+            return LerDto(promoBanco);
         }
         public void Remover(int id)
         {

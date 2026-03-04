@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RoyalGamess.Aplications.DTOs.PromocaoDto;
+using RoyalGamess.Aplications.DTOs.PlataformaDto;
 using RoyalGamess.Aplications.Services;
 using RoyalGamess.Exceptions;
 
@@ -9,27 +9,27 @@ namespace RoyalGamess.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PromocaoController : ControllerBase
+    public class PlataformaController : ControllerBase
     {
-        private readonly PromocaoService _service;
-
-        public PromocaoController(PromocaoService service)
+        private readonly PlataformaService _service;
+        public PlataformaController(PlataformaService service)
         {
             _service = service;
         }
+
         [HttpGet]
-        public ActionResult<List<LerPromocaoDto>> Listar()
+        public ActionResult<List<LerPlataformaDto>> Listar()
         {
-            List<LerPromocaoDto> promocoes = _service.Listar();
-            return Ok(promocoes);
+            List<LerPlataformaDto> lista = _service.Listar();
+            return Ok(lista);
         }
         [HttpGet("{id}")]
-        public ActionResult<LerPromocaoDto> ObterPorId(int id)
+        public ActionResult<LerPlataformaDto> ObterPorId(int id)
         {
             try
             {
-                LerPromocaoDto promocao = _service.ObterPorId(id);
-                return Ok(promocao);
+                LerPlataformaDto plat = _service.ObterPorId(id);
+                return Ok(plat);
             }
             catch (DomainException ex)
             {
@@ -37,12 +37,11 @@ namespace RoyalGamess.Controllers
             }
         }
         [HttpPost]
-        [Authorize]
-        public ActionResult<LerPromocaoDto> Adicionar(CriarPromocaoDto promocao)
+        public ActionResult<LerPlataformaDto> Adicionar(CriarPlataformaDto criarDto)
         {
             try
             {
-                _service.Adicionar(promocao);
+                _service.Adicionar(criarDto);
                 return StatusCode(201);
             }
             catch (DomainException ex)
@@ -52,12 +51,12 @@ namespace RoyalGamess.Controllers
         }
         [HttpPut("{id}")]
         [Authorize]
-        public ActionResult<LerPromocaoDto> Atualizar (int id, CriarPromocaoDto criarDTO)
+        public ActionResult<LerPlataformaDto> Atualizar(int id, CriarPlataformaDto criarDto)
         {
             try
             {
-                _service.Atualizar(id, criarDTO);
-                return NoContent();
+                _service.Atualizar(id, criarDto);
+                return Ok();
             }
             catch (DomainException ex)
             {
@@ -66,7 +65,8 @@ namespace RoyalGamess.Controllers
         }
         [HttpDelete("{id}")]
         [Authorize]
-        public ActionResult Remover(int id) {
+        public ActionResult Remover(int id)
+        {
             try
             {
                 _service.Remover(id);
@@ -76,7 +76,7 @@ namespace RoyalGamess.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        }
 
+        }
     }
 }
