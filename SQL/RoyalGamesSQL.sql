@@ -1,5 +1,8 @@
 create database Royal_Gamess
+GO
+
 use Royal_Gamess
+
 
 CREATE TABLE Usuario
 (
@@ -55,10 +58,8 @@ Descrição NVARCHAR(255),
 Preco DECIMAL(10,2),
 StatusJogo BIT DEFAULT 1,
 Imagem VARBINARY(MAX) NOT NULL,
-UsuarioIdFK INT NOT NULL,
-ClassificaçãoIdFK INT NOT NULL,
-CONSTRAINT FK_Jogo_Usuario FOREIGN KEY (UsuarioIdFK) REFERENCES Usuario(UsuarioId) ON DELETE CASCADE,
-CONSTRAINT FK_Jogo_Classificação FOREIGN KEY (ClassificaçãoIdFK) REFERENCES ClassificacaoIndicativa(ClassificacaoIndicativaId) ON DELETE CASCADE 
+UsuarioIdFK INT FOREIGN KEY REFERENCES Usuario(UsuarioId),
+ClassificaçãoIdFK INT FOREIGN KEY REFERENCES ClassificacaoIndicativa(ClassificacaoIndicativaId),
 --PlataformaIdFK INT NOT NULL,
 --PromocaoIdFK INT NOT NULL,
 --ClassificacaoIdFK INT NOT NULL,
@@ -171,13 +172,11 @@ VALUES
 ('PS4', 'Console'),
 ('Xbox One', 'Console')
 GO
+SELECT * FROM Promocao
 
-SELECT * FROM Usuario
-
-INSERT INTO Jogo(Nome, Descrição, Preco, StatusJogo, Imagem)
+INSERT INTO Jogo(Nome, Descrição, Preco, StatusJogo, Imagem, UsuarioIdFK, ClassificaçãoIdFK)
 VALUES
-('Dying Light', 'Jogo de zumbi com parkour tmj', 155.99, 1, CONVERT(VARBINARY(MAX), 'imagem aleatoria'))
-
+('Dying Light', 'Jogo de zumbi com parkour tmj', 155.99, 1, CONVERT(VARBINARY(MAX), 'imagem aleatoria'), 1, 1)
 go
 
 INSERT INTO Genero(Nome)
@@ -187,7 +186,6 @@ VALUES
 ('FPS'),
 ('Hack and Slash'),
 ('Soulslike')
-SELECT * FROM JogoPromocao
 
 INSERT INTO ClassificacaoIndicativa(Classificacao)
 VALUES
