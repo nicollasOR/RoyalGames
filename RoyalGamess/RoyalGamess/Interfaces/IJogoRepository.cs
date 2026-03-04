@@ -5,14 +5,15 @@ namespace RoyalGamess.Interfaces
     public interface IJogoRepository
     {
 
-        public List<Jogo> Listar();
+        List<Jogo> Listar();
         Jogo ObterPorId(int id);
         Jogo ObterPorNome(string nome);
-        public bool NomeJogoExiste(string nomeJogo);
+        byte[] ObterImg(int id);
+         bool NomeJogoExiste(string nomeJogo, int? jogoId = null  );
 
-        public void Adicionar(Jogo jogo);
-        public void Atualizar(Jogo jogo);
-        public void Remover(int id);
+          void Adicionar(Jogo jogo);
+          void Atualizar(Jogo jogo);
+          void Remover(int id);
 
     }
 }
