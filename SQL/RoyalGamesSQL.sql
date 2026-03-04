@@ -53,7 +53,10 @@ JogoId INT IDENTITY PRIMARY KEY,
 Nome VARCHAR(150),
 Descrição NVARCHAR(255),
 Preco DECIMAL(10,2),
-StatusJogo BIT DEFAULT 1
+StatusJogo BIT DEFAULT 1,
+Imagem VARBINARY(MAX) NOT NULL,
+UsuarioIdFK INT NOT NULL,
+CONSTRAINT FK_Jogo_Usuario FOREIGN KEY (UsuarioIdFK) REFERENCES Usuario(UsuarioId) ON DELETE CASCADE
 --PlataformaIdFK INT NOT NULL,
 --PromocaoIdFK INT NOT NULL,
 --ClassificacaoIdFK INT NOT NULL,
@@ -173,8 +176,6 @@ INSERT INTO Jogo(Nome, Descrição, Preco, StatusJogo, Imagem)
 VALUES
 ('Dying Light', 'Jogo de zumbi com parkour tmj', 155.99, 1, CONVERT(VARBINARY(MAX), 'imagem aleatoria'))
 
-ALTER TABLE Jogo
-ADD Imagem VARBINARY(MAX) NOT NULL;
 go
 
 INSERT INTO Genero(Nome)
