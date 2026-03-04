@@ -6,12 +6,12 @@ using RoyalGamess.Interfaces;
 
 namespace RoyalGamess.Repositorys
 {
-    public class ClassificacaoIndicativa :  IClassificacaoIndicativa
+    public class ClassificacaoIndicativaRepository :  IClassificacaoIndicativa
     {
 
         private readonly Royal_GamessContext _context;
 
-        public ClassificacaoIndicativa(Royal_GamessContext context)
+        public ClassificacaoIndicativaRepository(Royal_GamessContext context)
         {
             _context = context;
         }
@@ -26,6 +26,11 @@ namespace RoyalGamess.Repositorys
             return _context.ClassificacaoIndicativa.FirstOrDefault(classificacaoId => classificacaoId.ClassificacaoIndicativaId == id);
         }
 
+        public bool ClassificacaoExiste(string nome)
+        {
+            return _context.ClassificacaoIndicativa.Any(classificacao => classificacao.Classificacao == nome);
+        }
+
         public void Adicionar(ClassificacaoIndicativa classificacao)
         {
             _context.ClassificacaoIndicativa.Add(classificacao);
@@ -34,14 +39,14 @@ namespace RoyalGamess.Repositorys
 
         public void Atualizar(ClassificacaoIndicativa classificacao)
         {
-            ClassificacaoIndicativa? classificacaoBanco = _context.ClassificacaoIndicativa.FirstOrDefault(classificacaoId => classificacaoId.ClassificacaoIndicativaId == classificacaoId.ClassificacaoIndicativaId);
+            ClassificacaoIndicativa? classificacaoBanco = _context.ClassificacaoIndicativa.FirstOrDefault(classificacaoId =>
+            classificacaoId.ClassificacaoIndicativaId == classificacao.ClassificacaoIndicativaId);
             if(classificacaoBanco == null)
             {
                 return;
             }
 
-            classificacaoBanco.Nome = genero.Nome;
-
+            classificacaoBanco.Classificacao = classificacao.Classificacao;
             _context.SaveChanges();
         }
 

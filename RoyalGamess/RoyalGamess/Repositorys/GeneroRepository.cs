@@ -33,19 +33,7 @@ namespace RoyalGamess.Repositorys
             return _context.Genero.FirstOrDefault(generoNome => generoNome.Nome == nomeGenero);
         }
 
-        //public bool NomeGeneroExiste(string generoNome, int? generoIdAtual = null)
-        //{
 
-        //    var generoConsultado = _context.Genero.AsQueryable();
-
-        //    if (generoIdAtual.HasValue)
-        //    {
-        //        generoConsultado = generoConsultado.Where(generoId => generoId.GeneroId != generoIdAtual);
-        //        return generoConsultado.Any(genero => genero.Nome == generoNome);
-        //    }
-
-        //    return _context.Genero.Any(generoNomeC => generoNomeC.Nome = generoNome);
-        //}
 
         public bool NomeGeneroExiste(string nomeGenero)
         {

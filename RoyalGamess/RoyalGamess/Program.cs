@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using RoyalGamess.Aplications.Autenticacao;
 using RoyalGamess.Aplications.Services;
 using RoyalGamess.Contexts;
 using RoyalGamess.Interfaces;
@@ -56,9 +55,9 @@ builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<IGeneroRepository, GeneroRepository>();
 builder.Services.AddScoped<GeneroService>();
 
-//AutenticaçãoJwt
-builder.Services.AddScoped<AutenticacaoService>();
-builder.Services.AddScoped<GeradorTokenJWT>();
+// Classificação Indicativa
+builder.Services.AddScoped<IClassificacaoIndicativa, ClassificacaoIndicativaRepository>();
+builder.Services.AddScoped<ClassificacaoService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
      .AddJwtBearer(options =>
@@ -109,7 +108,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
          };
      });
 
-var app = builder.Build();
+var app = builder.Build();      
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

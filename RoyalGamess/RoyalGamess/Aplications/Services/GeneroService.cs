@@ -55,18 +55,9 @@ namespace RoyalGamess.Aplications.Services
             return LerDto(genero);
         }
 
-        private static void ValidarGenero(string genero, int? generoId = null!)
-        {
-            if (string.IsNullOrEmpty(genero) || generoId == null)
-            {
-                throw new DomainException("Genero não existe");
-            }
-            return;
-        }
 
         public LerGeneroDto Adicionar(CriarGeneroDto criarDtoGenero)
         {
-            ValidarGenero(criarDtoGenero.Nome);
             if (_repository.NomeGeneroExiste(criarDtoGenero.Nome))
             {
                 throw new DomainException("Não existe gênero sem nome");
@@ -90,7 +81,6 @@ namespace RoyalGamess.Aplications.Services
                 throw new DomainException("Gênero não encontrado");
             }
 
-            ValidarGenero(criarDtoGenero.Nome);
             Genero generoDto = _repository.ObterPorNome(criarDtoGenero.Nome);
             if (generoDto != null && generoDto.GeneroId != id)
             {
