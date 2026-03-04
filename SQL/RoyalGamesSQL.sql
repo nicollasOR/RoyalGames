@@ -56,7 +56,9 @@ Preco DECIMAL(10,2),
 StatusJogo BIT DEFAULT 1,
 Imagem VARBINARY(MAX) NOT NULL,
 UsuarioIdFK INT NOT NULL,
-CONSTRAINT FK_Jogo_Usuario FOREIGN KEY (UsuarioIdFK) REFERENCES Usuario(UsuarioId) ON DELETE CASCADE
+ClassificaçãoIdFK INT NOT NULL,
+CONSTRAINT FK_Jogo_Usuario FOREIGN KEY (UsuarioIdFK) REFERENCES Usuario(UsuarioId) ON DELETE CASCADE,
+CONSTRAINT FK_Jogo_Classificação FOREIGN KEY (ClassificaçãoIdFK) REFERENCES ClassificacaoIndicativa(ClassificacaoIndicativaId) ON DELETE CASCADE 
 --PlataformaIdFK INT NOT NULL,
 --PromocaoIdFK INT NOT NULL,
 --ClassificacaoIdFK INT NOT NULL,
