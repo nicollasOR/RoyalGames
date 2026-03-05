@@ -18,8 +18,8 @@
         public List<string> Genero { get; set; } = new();
 
 
-        public int classificacaoId { get; set; }
-        public List<string> Classificação { get; set; } = new();
+        public int? classificacaoId { get; set; }
+        public string? Classificação { get; set; } = null!;
 
         public int? UsuarioId { get; set; }
         public string? UsuarioNome { get; set; } 

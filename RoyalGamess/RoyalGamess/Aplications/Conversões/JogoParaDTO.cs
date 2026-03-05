@@ -18,9 +18,8 @@ namespace RoyalGamess.Aplications.Conversões
                 Plataforma = jogo.PlataformaIdFK.Select(nomePlat => nomePlat.Nome).ToList(),
                 Genero = jogo.GeneroIdFK.Select(nomeGen => nomeGen.Nome).ToList(),
                 generoIds = jogo.GeneroIdFK.Select(id => id.GeneroId).ToList(),
-                classificacaoId = jogo.ClassificaçãoIdFK ?? 0,
-                Classificação = jogo.ClassificaçãoIdFK
-
+                classificacaoId = jogo.ClassificaçãoIdFK,
+                Classificação = jogo.ClassificaçãoIdFKNavigation?.Classificacao,
 
                 UsuarioId = jogo.UsuarioIdFK,
                 UsuarioEmail = jogo.UsuarioIdFKNavigation?.Email,

@@ -134,5 +134,14 @@ namespace RoyalGamess.Aplications.Services
             return JogoParaDTO.converterParaDTO(jogoBanco);
         }
 
+
+        public void Remover(int id)
+        {
+            Jogo jogo = _repository.ObterPorId(id);
+            if(jogo == null)
+                throw new DomainException("Usuário não encontrado");
+
+            _repository.Remover(id);
+        }
     }
 }
