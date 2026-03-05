@@ -73,6 +73,14 @@ public partial class Royal_GamessContext : DbContext
             entity.Property(e => e.Preco).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.StatusJogo).HasDefaultValue(true);
 
+            entity.HasOne(d => d.ClassificaçãoIdFKNavigation).WithMany(p => p.Jogo)
+                .HasForeignKey(d => d.ClassificaçãoIdFK)
+                .HasConstraintName("FK__Jogo__Classifica__02084FDA");
+
+            entity.HasOne(d => d.UsuarioIdFKNavigation).WithMany(p => p.Jogo)
+                .HasForeignKey(d => d.UsuarioIdFK)
+                .HasConstraintName("FK__Jogo__UsuarioIdF__01142BA1");
+
             entity.HasMany(d => d.GeneroIdFK).WithMany(p => p.JogoIdFK)
                 .UsingEntity<Dictionary<string, object>>(
                     "JogoGenero",
@@ -122,7 +130,6 @@ public partial class Royal_GamessContext : DbContext
         {
             entity.HasKey(e => e.PlataformaId).HasName("PK__Platafor__B83567EDAB5C5024");
 
-            entity.Property(e => e.Genero).HasMaxLength(20);
             entity.Property(e => e.Nome)
                 .HasMaxLength(50)
                 .IsUnicode(false);
