@@ -102,7 +102,11 @@ namespace RoyalGamess.Aplications.Services
                 throw new DomainException("Usuário não encontrado!");
             }
             ValidarEmail(criarDto.Email);
+<<<<<<< HEAD
             Usuario? usuarioDto = _repository.ObterPorEmail(criarDto.Email);
+=======
+            Usuario usuarioDto = _repository.ObterPorEmail(criarDto.Email);
+>>>>>>> shouldCode
             if (usuarioDto != null && usuarioDto.UsuarioId != id)
             {
                 throw new DomainException("Usuário Inexistente!");
@@ -115,7 +119,11 @@ namespace RoyalGamess.Aplications.Services
         }
         public void Remover(int id)
         {
+<<<<<<< HEAD
             Usuario? usuario = _repository.ObterPorId(id);
+=======
+            Usuario usuario = _repository.ObterPorId(id);
+>>>>>>> shouldCode
             if (usuario == null)
             {
                 throw new DomainException("Usuário não encontrado!");

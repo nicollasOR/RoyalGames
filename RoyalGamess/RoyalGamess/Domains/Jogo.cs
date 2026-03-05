@@ -17,18 +17,24 @@ public partial class Jogo
 
     public byte[] Imagem { get; set; } = null!;
 
+<<<<<<< HEAD
     public int? UsuarioIdFK { get; set; }
 
     public int? ClassificaçãoIdFK { get; set; }
 
     public virtual ClassificacaoIndicativa? ClassificaçãoIdFKNavigation { get; set; }
 
+=======
+>>>>>>> shouldCode
     public virtual ICollection<JogoPromocao> JogoPromocao { get; set; } = new List<JogoPromocao>();
 
     public virtual ICollection<Log_Alteracao_Jogo> Log_Alteracao_Jogo { get; set; } = new List<Log_Alteracao_Jogo>();
 
+<<<<<<< HEAD
     public virtual Usuario? UsuarioIdFKNavigation { get; set; }
 
+=======
+>>>>>>> shouldCode
     public virtual ICollection<Genero> GeneroIdFK { get; set; } = new List<Genero>();
 
     public virtual ICollection<Plataforma> PlataformaIdFK { get; set; } = new List<Plataforma>();

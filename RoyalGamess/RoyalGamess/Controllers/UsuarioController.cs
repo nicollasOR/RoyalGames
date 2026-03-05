@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+=======
+﻿using Microsoft.AspNetCore.Http;
+>>>>>>> shouldCode
 using Microsoft.AspNetCore.Mvc;
 using RoyalGamess.Aplications.DTOs.UsuarioDto;
 using RoyalGamess.Aplications.Services;
@@ -68,7 +72,10 @@ namespace RoyalGamess.Controllers
             }
         }
         [HttpPut("{id}")]
+<<<<<<< HEAD
         [Authorize]
+=======
+>>>>>>> shouldCode
         public ActionResult<LerUsuarioDto> Atualizar(int id, CriarUsuarioDto criarDto)
         {
             try
@@ -82,13 +89,20 @@ namespace RoyalGamess.Controllers
             }
         }
         [HttpDelete("{id}")]
+<<<<<<< HEAD
         [Authorize]
+=======
+>>>>>>> shouldCode
         public ActionResult Remover(int id)
         {
             try
             {
                 _service.Remover(id);
+<<<<<<< HEAD
                 return Ok(id);
+=======
+                return Ok();
+>>>>>>> shouldCode
             }
             catch (Exception ex)
             {

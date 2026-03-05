@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 *.json
 *.vs
 *.bin
 *.obj
+=======
+**/.json/
+**/.vs/
+**/.bin/
+**/.obj/
+**/.vs/
+>>>>>>> shouldCode

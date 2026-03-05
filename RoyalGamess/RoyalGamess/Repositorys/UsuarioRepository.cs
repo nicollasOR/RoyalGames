@@ -41,7 +41,11 @@ namespace RoyalGamess.Repositorys
         public void Remover (int id)
         {
             Usuario? usuario = _context.Usuario.FirstOrDefault(usuario => usuario.UsuarioId == id);
+<<<<<<< HEAD
             if (usuario == null)
+=======
+            if (usuario != null)
+>>>>>>> shouldCode
             {
                 return;
             }

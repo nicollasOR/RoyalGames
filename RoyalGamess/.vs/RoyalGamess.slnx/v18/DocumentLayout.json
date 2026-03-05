@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|c:\\users\\58069799897\\desktop\\royalgamess\\royalgamess\\royalgamess\\aplications\\services\\plataformaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|solutionrelative:royalgamess\\aplications\\services\\plataformaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|c:\\users\\58069799897\\desktop\\royalgamess\\royalgamess\\royalgamess\\aplications\\dtos\\plataformadto\\criarplataformadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|solutionrelative:royalgamess\\aplications\\dtos\\plataformadto\\criarplataformadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -82,11 +86,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "LerPromocaoDto.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\PromocaoDto\\LerPromocaoDto.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\DTOs\\PromocaoDto\\LerPromocaoDto.cs",
@@ -95,8 +99,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-03T11:54:18.13Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -108,7 +111,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "PlataformaService.cs",
+              "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Aplications\\Services\\PlataformaService.cs",
+              "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\Services\\PlataformaService.cs",
+              "ToolTip": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Aplications\\Services\\PlataformaService.cs",
+              "RelativeToolTip": "RoyalGamess\\Aplications\\Services\\PlataformaService.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T11:33:18.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Royal_GamessContext.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Contexts\\Royal_GamessContext.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Contexts\\Royal_GamessContext.cs",
@@ -116,12 +132,11 @@
               "RelativeToolTip": "RoyalGamess\\Contexts\\Royal_GamessContext.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T11:14:30.542Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T11:14:30.542Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PlataformaRepository.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Repositorys\\PlataformaRepository.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Repositorys\\PlataformaRepository.cs",
@@ -129,12 +144,11 @@
               "RelativeToolTip": "RoyalGamess\\Repositorys\\PlataformaRepository.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAApwCYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T13:38:39.046Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-04T13:38:39.046Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "PlataformaController.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Controllers\\PlataformaController.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Controllers\\PlataformaController.cs",
@@ -146,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "PromocaoRepository.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Repositorys\\PromocaoRepository.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Repositorys\\PromocaoRepository.cs",
@@ -158,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "UsuarioService.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Aplications\\Services\\UsuarioService.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\Services\\UsuarioService.cs",
@@ -170,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "LerPlataformaDto.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\PlataformaDto\\LerPlataformaDto.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\DTOs\\PlataformaDto\\LerPlataformaDto.cs",
@@ -178,12 +192,11 @@
               "RelativeToolTip": "RoyalGamess\\Aplications\\DTOs\\PlataformaDto\\LerPlataformaDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T12:01:03.524Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-04T12:01:03.524Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CriarPlataformaDto.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\PlataformaDto\\CriarPlataformaDto.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\DTOs\\PlataformaDto\\CriarPlataformaDto.cs",
@@ -191,12 +204,11 @@
               "RelativeToolTip": "RoyalGamess\\Aplications\\DTOs\\PlataformaDto\\CriarPlataformaDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T11:59:41.351Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-04T11:59:41.351Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "IPlataformaRepository.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Interfaces\\IPlataformaRepository.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Interfaces\\IPlataformaRepository.cs",
@@ -208,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "IPromocaoRepository.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Interfaces\\IPromocaoRepository.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Interfaces\\IPromocaoRepository.cs",
@@ -220,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Promocao.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Domains\\Promocao.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Domains\\Promocao.cs",
@@ -232,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PromocaoService.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Aplications\\Services\\PromocaoService.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\Services\\PromocaoService.cs",
@@ -240,12 +252,11 @@
               "RelativeToolTip": "RoyalGamess\\Aplications\\Services\\PromocaoService.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAQwFgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-03T12:03:31.725Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-03T12:03:31.725Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Program.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Program.cs",
@@ -257,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Controllers\\UsuarioController.cs",
@@ -269,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "IUsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Interfaces\\IUsuarioRepository.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Interfaces\\IUsuarioRepository.cs",
@@ -281,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "UsuarioRepository.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Repositorys\\UsuarioRepository.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Repositorys\\UsuarioRepository.cs",
@@ -293,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "LerUsuarioDto.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\UsuarioDto\\LerUsuarioDto.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\DTOs\\UsuarioDto\\LerUsuarioDto.cs",
@@ -305,7 +316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "CriarUsuarioDto.cs",
               "DocumentMoniker": "C:\\Users\\58069799897\\Desktop\\RoyalGamess\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\UsuarioDto\\CriarUsuarioDto.cs",
               "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\DTOs\\UsuarioDto\\CriarUsuarioDto.cs",
