@@ -37,7 +37,7 @@ namespace RoyalGamess.Repositorys
 
         }
 
-        public byte[] ObterImg(int id)
+        public byte[] ObterImagem(int id)
         {
             var jogo = _context.Jogo.Where(jogo => jogo.JogoId == id).Select(jogo => jogo.Imagem).FirstOrDefault();
             return jogo;

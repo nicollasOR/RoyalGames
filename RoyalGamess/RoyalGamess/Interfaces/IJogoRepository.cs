@@ -9,7 +9,7 @@ namespace RoyalGamess.Interfaces
         Jogo ObterPorId(int id);
         Jogo ObterPorNome(string nome);
 
-        byte[] ObterImg(int id);
+        byte[] ObterImagem(int id);
          bool NomeJogoExiste(string nomeJogo, int? jogoId = null);
 
           void Adicionar(Jogo jogo, List<int> generoIds, List<int> plataformaIds);

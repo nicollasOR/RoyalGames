@@ -44,10 +44,10 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// chamar nossa conexão com o banco aqui na program
+// chamar nossa conexï¿½o com o banco aqui na program
 builder.Services.AddDbContext<Royal_GamessContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
-// Usuário
+// Usuï¿½rio
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<UsuarioService>();
 
@@ -55,53 +55,56 @@ builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<IGeneroRepository, GeneroRepository>();
 builder.Services.AddScoped<GeneroService>();
 
-// Classificação Indicativa
+// Classificaï¿½ï¿½o Indicativa
 builder.Services.AddScoped<IClassificacaoIndicativa, ClassificacaoIndicativaRepository>();
 builder.Services.AddScoped<ClassificacaoService>();
+
+builder.Services.AddScoped<IJogoRepository, JogoRepository>();
+builder.Services.AddScoped<JogoService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
      .AddJwtBearer(options =>
      {
-         // Lê a chave secreta definida no appsettings.json.
-         // Essa chave é usada para ASSINAR o token quando ele é gerado
-         // e também para VALIDAR se o token recebido é verdadeiro.
+         // Lï¿½ a chave secreta definida no appsettings.json.
+         // Essa chave ï¿½ usada para ASSINAR o token quando ele ï¿½ gerado
+         // e tambï¿½m para VALIDAR se o token recebido ï¿½ verdadeiro.
          var chave = builder.Configuration["Jwt:Key"]!;
 
-         // Quem emitiu o token (ex: nome da sua aplicação).
+         // Quem emitiu o token (ex: nome da sua aplicaï¿½ï¿½o).
          // Serve para evitar aceitar tokens de outro sistema.
          var issuer = builder.Configuration["Jwt:Issuer"]!;
 
-         // Para quem o token foi criado (normalmente o frontend ou a própria API).
-         // Também ajuda a garantir que o token pertence ao seu sistema.
+         // Para quem o token foi criado (normalmente o frontend ou a prï¿½pria API).
+         // Tambï¿½m ajuda a garantir que o token pertence ao seu sistema.
          var audience = builder.Configuration["Jwt:Audience"]!;
 
-         // Define as regras que serão usadas para validar o token recebido.
+         // Define as regras que serï¿½o usadas para validar o token recebido.
          options.TokenValidationParameters = new TokenValidationParameters
          {
-             // Verifica se o emissor do token é válido
+             // Verifica se o emissor do token ï¿½ vï¿½lido
              // (se bate com o issuer configurado).
              ValidateIssuer = true,
 
-             // Verifica se o destinatário do token é válido
+             // Verifica se o destinatï¿½rio do token ï¿½ vï¿½lido
              // (se bate com o audience configurado).
              ValidateAudience = true,
 
-             // Verifica se o token ainda está dentro do prazo de validade.
-             // Se já expirou, a requisição será negada.
+             // Verifica se o token ainda estï¿½ dentro do prazo de validade.
+             // Se jï¿½ expirou, a requisiï¿½ï¿½o serï¿½ negada.
              ValidateLifetime = true,
 
-             // Verifica se a assinatura do token é válida.
-             // Isso garante que o token não foi alterado.
+             // Verifica se a assinatura do token ï¿½ vï¿½lida.
+             // Isso garante que o token nï¿½o foi alterado.
              ValidateIssuerSigningKey = true,
 
-             // Define qual emissor é considerado válido.
+             // Define qual emissor ï¿½ considerado vï¿½lido.
              ValidIssuer = issuer,
 
-             // Define qual audience é considerado válido.
+             // Define qual audience ï¿½ considerado vï¿½lido.
              ValidAudience = audience,
 
-             // Define qual chave será usada para validar a assinatura do token.
-             // A mesma chave usada na geração do JWT deve estar aqui.
+             // Define qual chave serï¿½ usada para validar a assinatura do token.
+             // A mesma chave usada na geraï¿½ï¿½o do JWT deve estar aqui.
              IssuerSigningKey = new SymmetricSecurityKey(
                  Encoding.UTF8.GetBytes(chave)
              )

@@ -67,7 +67,7 @@ namespace RoyalGamess.Aplications.Services
 
         }
 
-        public byte[] Imagem(int id)
+        public byte[] ObterImagem(int id)
         {
             byte[] imagem = _repository.ObterImg(id);
             if (imagem == null || imagem.Length == 0)
