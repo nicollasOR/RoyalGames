@@ -7,11 +7,11 @@ public partial class Jogo
 {
     public int JogoId { get; set; }
 
-    public string? Nome { get; set; }
+    public string Nome { get; set; } = null!;
 
-    public string? Descrição { get; set; }
+    public string Descrição { get; set; } = null!;
 
-    public decimal? Preco { get; set; }
+    public decimal Preco { get; set; }
 
     public bool? StatusJogo { get; set; }
 

@@ -8,11 +8,12 @@ namespace RoyalGamess.Interfaces
         List<Jogo> Listar();
         Jogo ObterPorId(int id);
         Jogo ObterPorNome(string nome);
-        byte[] ObterImg(int id);
-         bool NomeJogoExiste(string nomeJogo, int? jogoId = null  );
 
-          void Adicionar(Jogo jogo);
-          void Atualizar(Jogo jogo);
+        byte[] ObterImg(int id);
+         bool NomeJogoExiste(string nomeJogo, int? jogoId = null);
+
+          void Adicionar(Jogo jogo, List<int> generoIds, List<int> plataformaIds);
+          void Atualizar(Jogo jogo, List<int> generoIds, List<int> plataformaIds);
           void Remover(int id);
 
     }

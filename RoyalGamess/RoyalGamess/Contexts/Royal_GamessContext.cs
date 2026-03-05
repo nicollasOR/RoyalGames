@@ -67,9 +67,7 @@ public partial class Royal_GamessContext : DbContext
                 });
 
             entity.Property(e => e.Descrição).HasMaxLength(255);
-            entity.Property(e => e.Nome)
-                .HasMaxLength(150)
-                .IsUnicode(false);
+            entity.Property(e => e.Nome).HasMaxLength(100);
             entity.Property(e => e.Preco).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.StatusJogo).HasDefaultValue(true);
 
