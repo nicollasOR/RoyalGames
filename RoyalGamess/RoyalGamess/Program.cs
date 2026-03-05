@@ -2,10 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-<<<<<<< HEAD
 using RoyalGamess.Aplications.Autenticacao;
-=======
->>>>>>> shouldCode
 using RoyalGamess.Aplications.Services;
 using RoyalGamess.Contexts;
 using RoyalGamess.Interfaces;
@@ -54,7 +51,6 @@ builder.Services.AddDbContext<Royal_GamessContext>(options => options.UseSqlServ
 // Usuário
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<UsuarioService>();
-<<<<<<< HEAD
 //AutenticaçãoJwt
 builder.Services.AddScoped<AutenticacaoService>();
 builder.Services.AddScoped<GeradorTokenJWT>();
@@ -64,7 +60,6 @@ builder.Services.AddScoped<PromocaoService>();
 //plataforma
 builder.Services.AddScoped<IPlataformaRepository, PlataformaRepository>();
 builder.Services.AddScoped<PlataformaService>();
-=======
 
 // Genero
 builder.Services.AddScoped<IGeneroRepository, GeneroRepository>();
@@ -73,7 +68,10 @@ builder.Services.AddScoped<GeneroService>();
 // Classificação Indicativa
 builder.Services.AddScoped<IClassificacaoIndicativa, ClassificacaoIndicativaRepository>();
 builder.Services.AddScoped<ClassificacaoService>();
->>>>>>> shouldCode
+//logs
+builder.Services.AddScoped<ILogAlteracaoJogoRepository, LogAlteracaoJogoRepository>();
+builder.Services.AddScoped<LogAlteracaoJogoService>();
+
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
      .AddJwtBearer(options =>
@@ -124,11 +122,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
          };
      });
 
-<<<<<<< HEAD
 var app = builder.Build();
-=======
-var app = builder.Build();      
->>>>>>> shouldCode
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

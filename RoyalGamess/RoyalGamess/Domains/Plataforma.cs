@@ -9,10 +9,5 @@ public partial class Plataforma
 
     public string Nome { get; set; } = null!;
 
-<<<<<<< HEAD
-=======
-    public string Genero { get; set; } = null!;
-
->>>>>>> shouldCode
     public virtual ICollection<Jogo> JogoIdFK { get; set; } = new List<Jogo>();
 }

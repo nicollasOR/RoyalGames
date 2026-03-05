@@ -8,9 +8,7 @@ public partial class ClassificacaoIndicativa
     public int ClassificacaoIndicativaId { get; set; }
 
     public string Classificacao { get; set; } = null!;
-<<<<<<< HEAD
 
     public virtual ICollection<Jogo> Jogo { get; set; } = new List<Jogo>();
-=======
->>>>>>> shouldCode
+
 }
