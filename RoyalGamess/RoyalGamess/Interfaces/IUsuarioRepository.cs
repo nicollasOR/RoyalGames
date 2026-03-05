@@ -1,4 +1,5 @@
-﻿using RoyalGamess.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using RoyalGamess.Domains;
 
 namespace RoyalGamess.Interfaces
 {
@@ -14,3 +15,5 @@ namespace RoyalGamess.Interfaces
         public void Remover(int id);
     }
 }
+
+

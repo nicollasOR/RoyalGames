@@ -9,7 +9,5 @@ public partial class Plataforma
 
     public string Nome { get; set; } = null!;
 
-    public string Genero { get; set; } = null!;
-
     public virtual ICollection<Jogo> JogoIdFK { get; set; } = new List<Jogo>();
 }

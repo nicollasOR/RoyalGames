@@ -14,4 +14,6 @@ public partial class Usuario
     public byte[] Senha { get; set; } = null!;
 
     public bool? StatusUsuario { get; set; }
+
+    public virtual ICollection<Jogo> Jogo { get; set; } = new List<Jogo>();
 }

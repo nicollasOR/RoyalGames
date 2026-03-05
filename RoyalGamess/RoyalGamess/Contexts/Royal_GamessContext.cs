@@ -40,7 +40,7 @@ public partial class Royal_GamessContext : DbContext
     {
         modelBuilder.Entity<ClassificacaoIndicativa>(entity =>
         {
-            entity.HasKey(e => e.ClassificacaoIndicativaId).HasName("PK__Classifi__892DEC0F2E17C48E");
+            entity.HasKey(e => e.ClassificacaoIndicativaId).HasName("PK__Classifi__892DEC0FE3C4CF69");
 
             entity.Property(e => e.Classificacao)
                 .HasMaxLength(50)
@@ -49,7 +49,7 @@ public partial class Royal_GamessContext : DbContext
 
         modelBuilder.Entity<Genero>(entity =>
         {
-            entity.HasKey(e => e.GeneroId).HasName("PK__Genero__A99D024861EFEBCA");
+            entity.HasKey(e => e.GeneroId).HasName("PK__Genero__A99D02483317993F");
 
             entity.Property(e => e.Nome)
                 .HasMaxLength(50)
@@ -58,7 +58,7 @@ public partial class Royal_GamessContext : DbContext
 
         modelBuilder.Entity<Jogo>(entity =>
         {
-            entity.HasKey(e => e.JogoId).HasName("PK__Jogo__5919683595815C42");
+            entity.HasKey(e => e.JogoId).HasName("PK__Jogo__5919683589FF1BBD");
 
             entity.ToTable(tb =>
                 {
@@ -72,6 +72,14 @@ public partial class Royal_GamessContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.Preco).HasColumnType("decimal(10, 2)");
             entity.Property(e => e.StatusJogo).HasDefaultValue(true);
+
+            entity.HasOne(d => d.ClassificaçãoIdFKNavigation).WithMany(p => p.Jogo)
+                .HasForeignKey(d => d.ClassificaçãoIdFK)
+                .HasConstraintName("FK__Jogo__Classifica__693CA210");
+
+            entity.HasOne(d => d.UsuarioIdFKNavigation).WithMany(p => p.Jogo)
+                .HasForeignKey(d => d.UsuarioIdFK)
+                .HasConstraintName("FK__Jogo__UsuarioIdF__68487DD7");
 
             entity.HasMany(d => d.GeneroIdFK).WithMany(p => p.JogoIdFK)
                 .UsingEntity<Dictionary<string, object>>(
@@ -105,7 +113,7 @@ public partial class Royal_GamessContext : DbContext
 
         modelBuilder.Entity<Log_Alteracao_Jogo>(entity =>
         {
-            entity.HasKey(e => e.Log_Alteracao_Jogo_Id).HasName("PK__Log_Alte__B35E86FAA429AF01");
+            entity.HasKey(e => e.Log_Alteracao_Jogo_Id).HasName("PK__Log_Alte__B35E86FA748AF788");
 
             entity.Property(e => e.DataAlteracao).HasPrecision(0);
             entity.Property(e => e.NomeAnterior)
@@ -115,14 +123,13 @@ public partial class Royal_GamessContext : DbContext
 
             entity.HasOne(d => d.Jogo).WithMany(p => p.Log_Alteracao_Jogo)
                 .HasForeignKey(d => d.JogoId)
-                .HasConstraintName("FK__Log_Alter__JogoI__6A30C649");
+                .HasConstraintName("FK__Log_Alter__JogoI__6C190EBB");
         });
 
         modelBuilder.Entity<Plataforma>(entity =>
         {
-            entity.HasKey(e => e.PlataformaId).HasName("PK__Platafor__B83567EDAB5C5024");
+            entity.HasKey(e => e.PlataformaId).HasName("PK__Platafor__B83567ED7AA3BDCE");
 
-            entity.Property(e => e.Genero).HasMaxLength(20);
             entity.Property(e => e.Nome)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -144,7 +151,7 @@ public partial class Royal_GamessContext : DbContext
 
         modelBuilder.Entity<Promocao>(entity =>
         {
-            entity.HasKey(e => e.PromocaoId).HasName("PK__Promocao__254B581D87447600");
+            entity.HasKey(e => e.PromocaoId).HasName("PK__Promocao__254B581D31924A0F");
 
             entity.Property(e => e.DataExpiração).HasColumnType("datetime");
             entity.Property(e => e.Nome)
@@ -154,7 +161,7 @@ public partial class Royal_GamessContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.UsuarioId).HasName("PK__Usuario__2B3DE7B8C4A850D3");
+            entity.HasKey(e => e.UsuarioId).HasName("PK__Usuario__2B3DE7B821E8C119");
 
             entity.ToTable(tb => tb.HasTrigger("trg_ExclusaoUsuario"));
 
