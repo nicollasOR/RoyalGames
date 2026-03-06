@@ -14,6 +14,7 @@ namespace RoyalGamess.Aplications.Conversões
                 Nome = jogo.Nome,
                 Descrição = jogo.Descrição,
                 StatusJogo = jogo.StatusJogo ?? false,
+                // StatusJogo = jogo.StatusJogo,
                 plataformaIds = jogo.PlataformaIdFK.Select(id => id.PlataformaId).ToList(),
                 Plataforma = jogo.PlataformaIdFK.Select(nomePlat => nomePlat.Nome).ToList(),
                 Genero = jogo.GeneroIdFK.Select(nomeGen => nomeGen.Nome).ToList(),

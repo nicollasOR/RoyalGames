@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RoyalGamess.Contexts;
 using RoyalGamess.Domains;
+using Royal_Gamess.Interfaces;
 
 namespace RoyalGamess.Repositorys
 {
-    public class JogoRepository
+    public class JogoRepository : IJogoRepository
     {
         private readonly Royal_GamessContext _context;
         public JogoRepository(Royal_GamessContext context)
@@ -15,8 +16,10 @@ namespace RoyalGamess.Repositorys
         public List<Jogo> Listar()
         {
             List<Jogo> jogos = _context.Jogo
-                .Include(jogo => jogo.ClassificaçãoIdFK)
-                .Include(jogo => jogo.UsuarioIdFK)
+                .Include(jogo => jogo.ClassificaçãoIdFKNavigation)
+                .Include(jogo => jogo.UsuarioIdFKNavigation)
+                .Include(jogo => jogo.GeneroIdFK)
+                .Include(jogo => jogo.PlataformaIdFK)
                 .ToList();
 
             return jogos;
@@ -24,8 +27,11 @@ namespace RoyalGamess.Repositorys
         public Jogo ObterPorId(int id)
         {
             Jogo? jogoId = _context.Jogo
-                .Include(jogo => jogo.ClassificaçãoIdFK)
-                .Include(jogo => jogo.UsuarioIdFK).FirstOrDefault(jogo => jogo.JogoId == id);
+                .Include(jogo => jogo.ClassificaçãoIdFKNavigation)
+                .Include(jogo => jogo.UsuarioIdFKNavigation)
+                .Include(jogo => jogo.GeneroIdFK)
+                .Include(jogo => jogo.PlataformaIdFK)
+                FirstOrDefault(jogo => jogo.JogoId == id);
 
             return jogoId;
 
@@ -33,13 +39,25 @@ namespace RoyalGamess.Repositorys
 
         public Jogo? ObterPorNome(string nome)
         {
-            return _context.Jogo.FirstOrDefault(jogoNome => jogoNome.Nome == nome);
+            // return _context.Jogo.FirstOrDefault(jogoNome => jogoNome.Nome == nome);
+
+            Jogo? jogoNome = _context.Jogo
+                .Include(jogo => jogo.ClassificaçãoIdFKNavigation)
+                .Include(jogo => jogo.UsuarioIdFKNavigation)
+                .Include(jogo => jogo.GeneroIdFK)
+                .Include(jogo => jogo.PlataformaIdFK)
+                .FirstOrDefault(jogoNome => jogoNome.Nome == nome);
+
+                return jogoNome;
+
 
         }
 
         public byte[] ObterImagem(int id)
         {
-            var jogo = _context.Jogo.Where(jogo => jogo.JogoId == id).Select(jogo => jogo.Imagem).FirstOrDefault();
+            var jogo = _context.Jogo.Where(jogo => jogo.JogoId == id)
+            .Select(jogo => jogo.Imagem)
+            .FirstOrDefault();
             return jogo;
         }
 
@@ -57,47 +75,50 @@ namespace RoyalGamess.Repositorys
         {
             List<Genero> generos = _context.Genero.Where(generoAux => generoIds.Contains(generoAux.GeneroId)).ToList();
             List<Plataforma> plataformas = _context.Plataforma.Where(plataformaAux => plataformaIds.Contains(plataformaAux.PlataformaId)).ToList();
+
             jogo.GeneroIdFK = generos;
             jogo.PlataformaIdFK = plataformas;
 
             _context.Jogo.Add(jogo);
+            _context.SaveChanges();
         }
 
         public void Atualizar(Jogo jogo, List<int> generoIds, List<int> plataformaIds)
         {
 
-            Jogo jogoBanco = _context.Jogo.Include(jogos => jogos.GeneroIdFK).Include(jogos => jogos.PlataformaIdFK)
+            Jogo? jogoAtualizar = _context.Jogo
+            .Include(jogos => jogos.GeneroIdFK)
+            .Include(jogos => jogos.PlataformaIdFK)
                 .FirstOrDefault(jogoAux => jogoAux.PlataformaIdFK == jogo.PlataformaIdFK && jogoAux.GeneroIdFK == jogo.GeneroIdFK);
 
-            if (jogoBanco == null)
+            if (jogoAtualizar == null)
             {
                 return;
             }
 
-            jogoBanco.Nome = jogo.Nome;
-            jogoBanco.Preco = jogo.Preco;
-            jogoBanco.Descrição = jogo.Descrição;
+            jogoAtualizar.Nome = jogo.Nome;
+            jogoAtualizar.Preco = jogo.Preco;
+            jogoAtualizar.Descrição = jogo.Descrição;
 
             if (jogo.Imagem != null && jogo.Imagem.Length > 0)
-                jogoBanco.Imagem = jogo.Imagem;
+                jogoAtualizar.Imagem = jogo.Imagem;
 
             if (jogo.StatusJogo.HasValue)
-                jogoBanco.StatusJogo = jogo.StatusJogo;
+                jogoAtualizar.StatusJogo = jogo.StatusJogo;
 
             var jogosGenero = _context.Genero.Where(genero => generoIds.Contains(genero.GeneroId)).ToList();
-            jogoBanco.GeneroIdFK.Clear();
-
+            jogoAtualizar.GeneroIdFK.Clear();
             foreach (var generosVar in jogosGenero)
             {
-                jogoBanco.GeneroIdFK.Add(generosVar);
+                jogoAtualizar.GeneroIdFK.Add(generosVar);
             }
 
-            var jogosPlataforma = _context.Plataforma.Where(classificacao => plataformaIds.Contains(classificacao.PlataformaId)).ToList();
-            jogoBanco.PlataformaIdFK.Clear();
 
+            var jogosPlataforma = _context.Plataforma.Where(classificacao => plataformaIds.Contains(classificacao.PlataformaId)).ToList();
+            jogoAtualizar.PlataformaIdFK.Clear();
             foreach (var plataformaVar in jogosPlataforma)
             {
-                jogoBanco.PlataformaIdFK.Add(plataformaVar);
+                jogoAtualizar.PlataformaIdFK.Add(plataformaVar);
             }
 
             _context.SaveChanges();
