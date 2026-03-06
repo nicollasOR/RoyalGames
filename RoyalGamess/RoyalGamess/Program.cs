@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using RoyalGamess.Aplications.Autenticacao;
 using RoyalGamess.Aplications.Services;
 using RoyalGamess.Contexts;
 using RoyalGamess.Interfaces;
@@ -50,7 +51,9 @@ builder.Services.AddDbContext<Royal_GamessContext>(options => options.UseSqlServ
 // Usu�rio
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<UsuarioService>();
-
+//Autentica��oJwt
+builder.Services.AddScoped<AutenticacaoService>();
+builder.Services.AddScoped<GeradorTokenJWT>();
 // Genero
 builder.Services.AddScoped<IGeneroRepository, GeneroRepository>();
 builder.Services.AddScoped<GeneroService>();
@@ -61,6 +64,17 @@ builder.Services.AddScoped<ClassificacaoService>();
 
 builder.Services.AddScoped<IJogoRepository, JogoRepository>();
 builder.Services.AddScoped<JogoService>();
+
+builder.Services.AddScoped<ILogAlteracaoJogoRepository, LogAlteracaoJogoRepository>();
+builder.Services.AddScoped<LogAlteracaoJogoService>();
+
+//promocao
+builder.Services.AddScoped<IPromocaoRepository, PromocaoRepository>();
+builder.Services.AddScoped<PromocaoService>();
+
+//plataforma
+builder.Services.AddScoped<IPlataformaRepository, PlataformaRepository>();
+builder.Services.AddScoped<PlataformaService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
      .AddJwtBearer(options =>
