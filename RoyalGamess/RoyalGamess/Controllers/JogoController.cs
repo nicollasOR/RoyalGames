@@ -77,7 +77,9 @@ namespace RoyalGamess.Controllers
         public ActionResult ObterImagem(int id)
         {
             try 
+
             {
+
                 var imagem = _service.ObterImagem(id);
 
                 return File(imagem, "image/jpeg");
@@ -98,7 +100,7 @@ namespace RoyalGamess.Controllers
             {
                 //usuarioId = ObterUsuarioIdLogado();
                 _service.Adicionar(usuarioId, jogoDto);
-                return Created();
+                return StatusCode(201);
             }
 
             catch (DomainException ex)

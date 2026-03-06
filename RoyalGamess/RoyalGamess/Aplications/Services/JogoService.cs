@@ -69,9 +69,14 @@ namespace RoyalGamess.Aplications.Services
 
         public byte[] ObterImagem(int id)
         {
+        Jogo? jogo = _repository.ObterPorId(id);
+            if (jogo == null )
+                throw new DomainException("Jogo não existe");
+
+
             byte[] imagem = _repository.ObterImagem(id);
             if (imagem == null || imagem.Length == 0)
-                throw new DomainException("Jogo já existe");
+                throw new DomainException("Jogo não possui imagem");
 
             return imagem;
         }

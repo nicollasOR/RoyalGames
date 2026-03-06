@@ -50,7 +50,7 @@ namespace RoyalGamess.Controllers
 
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public ActionResult Atualizar(int id, CriarClassificacaoDto criarDto)
         {
             LerClassificacaoDto classificacaoDto = _service.Atualizar(id, criarDto);
@@ -60,7 +60,7 @@ namespace RoyalGamess.Controllers
                 return Ok(classificacaoDto);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public ActionResult Remover(int id)
         {
             try
