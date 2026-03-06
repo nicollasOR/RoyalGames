@@ -69,19 +69,19 @@ namespace RoyalGamess.Aplications.Services
 
         public byte[] ObterImagem(int id)
         {
-            byte[] imagem = _repository.ObterImg(id);
+            byte[] imagem = _repository.ObterImagem(id);
             if (imagem == null || imagem.Length == 0)
-                throw new DomainException("Produto já existe");
+                throw new DomainException("Jogo já existe");
 
             return imagem;
         }
 
-        public LerJogoDto Adicionar(CriarJogoDto criarDto, int usuarioId, int classificacaoId)
+        public LerJogoDto Adicionar(int usuarioId, CriarJogoDto criarDto)
         {
             validarJogo(criarDto);
 
             if (_repository.NomeJogoExiste(criarDto.Nome))
-                throw new DomainException("Produto já existente");
+                throw new DomainException("Jogo já existente");
 
             Jogo jogo = new Jogo
             {
@@ -91,7 +91,7 @@ namespace RoyalGamess.Aplications.Services
                 Imagem = ImagemParaByte.ConverterImagem(criarDto.Imagem),
                 StatusJogo = true,
                 UsuarioIdFK = usuarioId,
-                ClassificaçãoIdFK = classificacaoId
+                ClassificaçãoIdFK = criarDto.classificacaoId
             };
 
             _repository.Adicionar(jogo, criarDto.plataformaIds, criarDto.generoIds);
@@ -120,6 +120,8 @@ namespace RoyalGamess.Aplications.Services
 
             if(jogoDto.generoIds == null || jogoDto.generoIds.Count == 0)
                 throw new DomainException("Jogo não possui gênero");
+            if (jogoDto.Preço < 0)
+                throw new DomainException("Jogo tem que ter preço");
 
             jogoBanco.Nome = jogoDto.Nome;
             jogoBanco.Descrição = jogoDto.Descrição;

@@ -20,20 +20,15 @@ namespace RoyalGamess.Controllers
             _service = service;
         }
 
-        private int ObterUsuarioIdLogado()
-        {
+        //private int ObterUsuarioIdLogado()
+        //{
+        //    string? idTexto = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            //busca no token/claims o valor armazenado como id do usuario
-            string? idTexto = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            //ClaimTypes.NameIdentifier geralmente guarda o ID do usuário no JWT
+        //    if (string.IsNullOrEmpty(idTexto))
+        //        throw new DomainException("Usuário não encontrado!");
 
-            if (string.IsNullOrEmpty(idTexto))
-            {
-                throw new DomainException("Usuário não encotnrado");
-            }
-
-            return int.Parse(idTexto);
-        }
+        //    return int.Parse(idTexto);
+        //}
 
         [HttpGet]
         public ActionResult<List<LerJogoDto>> Listar()
@@ -69,7 +64,7 @@ namespace RoyalGamess.Controllers
             try 
             {
                 LerJogoDto jogo = _service.ObterPorNome(nomeJogo);
-                return Ok(jogo)
+                return Ok(jogo);
             }
 
             catch(DomainException ex)
@@ -96,13 +91,14 @@ namespace RoyalGamess.Controllers
 
 
         [HttpPost]
-        public ActionResult Adicionar([FromForm] CriarJogoDto jogoDto)
+        [Consumes("multipart/form-data")]
+        public ActionResult Adicionar(int usuarioId, [FromForm] CriarJogoDto jogoDto)
         {
             try
             {
-                int usuarioId = ObterUsuarioIdLogado();
-                _service.Adicionar(jogoDto, usuarioId);
-                return NoContent();
+                //usuarioId = ObterUsuarioIdLogado();
+                _service.Adicionar(usuarioId, jogoDto);
+                return Created();
             }
 
             catch (DomainException ex)
@@ -113,14 +109,13 @@ namespace RoyalGamess.Controllers
 
         [HttpPut("{id}")]
         [Consumes("multipart/form-data")]
-        [Authorize]
 
-        public ActionResult Atualizar(int id, [FromForm] AtualizarJogoDto jogoDto)
+        public ActionResult Atualizar([FromForm] AtualizarJogoDto jogoDto, int id)
         {
             try
             {
-                _service.Atualizar(id, jogoDto);
-                return NoContent();
+                _service.Atualizar(jogoDto, id);
+                return Ok();
             }
 
             catch(DomainException ex)
@@ -131,7 +126,6 @@ namespace RoyalGamess.Controllers
 
 
         [HttpDelete("{id}")]
-        [Authorize]
         public ActionResult Delete(int id)
         {
             try

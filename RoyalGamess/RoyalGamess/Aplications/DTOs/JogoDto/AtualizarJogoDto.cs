@@ -10,7 +10,7 @@
         public List<int> plataformaIds { get; set; } = new();
         public List<int> generoIds { get; set; } = new();
 
-        // public int classificacaoId { get; set; }
+        public int classificacaoId { get; set; }
 
     }
 }

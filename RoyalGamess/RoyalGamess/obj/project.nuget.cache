@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1M7Pof1UzCs=",
+  "dgSpecHash": "inmjMTLeIT8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\54930515831\\Desktop\\RYG\\RoyalGames\\RoyalGamess\\RoyalGamess\\RoyalGamess.csproj",
+  "projectFilePath": "C:\\Users\\54930515831\\Videos\\RoyalGames\\RoyalGamess\\RoyalGamess\\RoyalGamess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\54930515831\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\54930515831\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

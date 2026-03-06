@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RoyalGamess.Contexts;
 using RoyalGamess.Domains;
-using Royal_Gamess.Interfaces;
+using RoyalGamess.Interfaces;
 
 namespace RoyalGamess.Repositorys
 {
@@ -31,7 +31,7 @@ namespace RoyalGamess.Repositorys
                 .Include(jogo => jogo.UsuarioIdFKNavigation)
                 .Include(jogo => jogo.GeneroIdFK)
                 .Include(jogo => jogo.PlataformaIdFK)
-                FirstOrDefault(jogo => jogo.JogoId == id);
+                .FirstOrDefault(jogo => jogo.JogoId == id);
 
             return jogoId;
 
@@ -48,7 +48,7 @@ namespace RoyalGamess.Repositorys
                 .Include(jogo => jogo.PlataformaIdFK)
                 .FirstOrDefault(jogoNome => jogoNome.Nome == nome);
 
-                return jogoNome;
+            return jogoNome;
 
 
         }
@@ -85,11 +85,10 @@ namespace RoyalGamess.Repositorys
 
         public void Atualizar(Jogo jogo, List<int> generoIds, List<int> plataformaIds)
         {
-
             Jogo? jogoAtualizar = _context.Jogo
-            .Include(jogos => jogos.GeneroIdFK)
-            .Include(jogos => jogos.PlataformaIdFK)
-                .FirstOrDefault(jogoAux => jogoAux.PlataformaIdFK == jogo.PlataformaIdFK && jogoAux.GeneroIdFK == jogo.GeneroIdFK);
+               .Include(j => j.GeneroIdFK)
+               .Include(j => j.PlataformaIdFK)
+               .FirstOrDefault(j => j.JogoId == jogo.JogoId);
 
             if (jogoAtualizar == null)
             {

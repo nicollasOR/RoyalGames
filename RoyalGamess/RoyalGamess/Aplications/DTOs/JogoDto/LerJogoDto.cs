@@ -9,8 +9,8 @@
         public string Descrição { get; set; } = null!;
         public IFormFile Imagem { get; set; }
         public decimal Preço { get; set; }
-        public bool? StatusJogo { get; set; }
-        // public bool StatusJogo { get; set; }
+        public bool StatusJogo { get; set; }
+        // public bool? StatusJogo { get; set; }
         public List<int> plataformaIds { get; set; } = new();
 
         public List<string> Plataforma { get; set; } = new();
