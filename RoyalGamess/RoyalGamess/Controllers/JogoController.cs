@@ -20,15 +20,16 @@ namespace RoyalGamess.Controllers
             _service = service;
         }
 
-        //private int ObterUsuarioIdLogado()
-        //{
-        //    string? idTexto = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        private int ObterUsuarioIdLogado()
+        {
+            string? idTexto = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-        //    if (string.IsNullOrEmpty(idTexto))
-        //        throw new DomainException("Usuário não encontrado!");
+            if (string.IsNullOrEmpty(idTexto))
+                throw new DomainException("Usuário não encontrado!");
 
-        //    return int.Parse(idTexto);
-        //}
+
+            return int.Parse(idTexto);
+        }
 
         [HttpGet]
         public ActionResult<List<LerJogoDto>> Listar()
@@ -50,7 +51,7 @@ namespace RoyalGamess.Controllers
                 return Ok(jogo);
             }
 
-            catch(DomainException ex)
+            catch (DomainException ex)
             {
                 return NotFound(ex.Message);
             }
@@ -59,15 +60,15 @@ namespace RoyalGamess.Controllers
         }
 
         [HttpGet("nome/{nomeJogo}")]
-        public ActionResult<LerJogoDto>ObterPorNome(string nomeJogo)
+        public ActionResult<LerJogoDto> ObterPorNome(string nomeJogo)
         {
-            try 
+            try
             {
                 LerJogoDto jogo = _service.ObterPorNome(nomeJogo);
                 return Ok(jogo);
             }
 
-            catch(DomainException ex)
+            catch (DomainException ex)
             {
                 return NotFound(ex.Message);
             }
@@ -76,7 +77,7 @@ namespace RoyalGamess.Controllers
         [HttpGet("{id}/imagem")]
         public ActionResult ObterImagem(int id)
         {
-            try 
+            try
 
             {
 
@@ -85,7 +86,7 @@ namespace RoyalGamess.Controllers
                 return File(imagem, "image/jpeg");
             }
 
-            catch(DomainException ex)
+            catch (DomainException ex)
             {
                 return NotFound(ex.Message);
             }
@@ -94,11 +95,11 @@ namespace RoyalGamess.Controllers
 
         [HttpPost]
         [Consumes("multipart/form-data")]
-        public ActionResult Adicionar(int usuarioId, [FromForm] CriarJogoDto jogoDto)
+        public ActionResult Adicionar( [FromForm] CriarJogoDto jogoDto)
         {
             try
             {
-                //usuarioId = ObterUsuarioIdLogado();
+                int usuarioId = ObterUsuarioIdLogado();
                 _service.Adicionar(usuarioId, jogoDto);
                 return StatusCode(201);
             }
@@ -111,6 +112,7 @@ namespace RoyalGamess.Controllers
 
         [HttpPut("{id}")]
         [Consumes("multipart/form-data")]
+        [Authorize]
 
         public ActionResult Atualizar([FromForm] AtualizarJogoDto jogoDto, int id)
         {
@@ -120,7 +122,7 @@ namespace RoyalGamess.Controllers
                 return Ok();
             }
 
-            catch(DomainException ex)
+            catch (DomainException ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -128,6 +130,8 @@ namespace RoyalGamess.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize]
+
         public ActionResult Delete(int id)
         {
             try
@@ -136,12 +140,12 @@ namespace RoyalGamess.Controllers
                 return StatusCode(204, id);
             }
 
-            catch(DomainException ex)
+            catch (DomainException ex)
             {
                 return StatusCode(400, ex);
             }
         }
-        
+
 
     }
 }

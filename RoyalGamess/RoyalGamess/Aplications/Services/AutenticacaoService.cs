@@ -1,6 +1,7 @@
 ﻿using RoyalGamess.Aplications.Autenticacao;
 using RoyalGamess.Aplications.DTOs.AutenticacaoDto;
 using RoyalGamess.Domains;
+using RoyalGamess.Exceptions;
 using RoyalGamess.Interfaces;
 
 namespace RoyalGamess.Aplications.Services
@@ -26,11 +27,16 @@ namespace RoyalGamess.Aplications.Services
             Usuario? usuario = _repository.ObterPorEmail(loginDto.Email);
             if (usuario == null)
             {
-                throw new Exception("Email ou senha inválidos!");
+                throw new DomainException("Email ou senha inválidos!");
             }
-            if (!VerificarSenha(loginDto.Senha, usuario.Senha))
+
+            if(usuario.StatusUsuario == false)
             {
-                throw new Exception("Email ou senha inválidos!");
+                throw new DomainException("Email ou senha inválidos");
+            }
+            if (VerificarSenha(loginDto.Senha, usuario.Senha) == false)
+            {
+                throw new DomainException("Email ou senha inválidos!");
             }
 
             //gerar token

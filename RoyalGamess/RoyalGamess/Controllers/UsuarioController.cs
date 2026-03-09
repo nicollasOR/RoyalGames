@@ -26,6 +26,7 @@ namespace RoyalGamess.Controllers
             {
                 return Ok(list);
             }
+
         }
         [HttpGet("{id}")]
         public ActionResult<LerUsuarioDto> ObterPorId(int id)
