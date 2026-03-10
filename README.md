@@ -12,12 +12,12 @@ O projeto foi desenvolvido com foco em **boas práticas de arquitetura, organiza
 O objetivo da **RoyalGames** é criar uma API capaz de gerenciar um catálogo de jogos e consoles, permitindo operações como:
 
 - Cadastro de produtos
-- Listagem de jogos e consoles
+- Listagem de jogos e plataformas
 - Atualização de informações
 - Remoção de produtos
 - Autenticação de administrador
 
-A aplicação foi construída apenas como **API**, sendo testada e documentada através do **Swagger**.
+A aplicação foi construída por enquanto como **API**, sendo testada e documentada através do **Swagger**.
 
 ---
 
@@ -46,17 +46,6 @@ As principais tecnologias utilizadas no projeto foram:
 
 ---
 
-##  Autenticação
-
-A aplicação utiliza **JWT (JSON Web Token)** para autenticação de administradores.
-
-Com isso:
-
-- Apenas usuários autenticados podem acessar rotas administrativas
-- As requisições protegidas exigem um **token válido** com um tempo limite de expiração. 
-
----
-
 ##  Metodologia de Desenvolvimento
 
 Durante o desenvolvimento do projeto utilizamos **metodologias ágeis**, aplicando o **Kanban** para organização das tarefas.
@@ -71,25 +60,15 @@ Isso ajudou no **controle de tarefas, organização do fluxo de desenvolvimento 
 
 ---
 
-## Testes da API
-
-Como o projeto consiste apenas em uma **API**, os testes foram realizados utilizando o **Swagger**, que permite:
-
-- Visualizar todas as rotas disponíveis
-- Testar endpoints diretamente no navegador
-- Ver exemplos de requisições e respostas
-
----
-
 ##  Estrutura das pastas do Projeto
 
-A estrutura do projeto segue conceitos de **DDD**, separando responsabilidades em diferentes camadas, como por exemplo:
+A estrutura do nosso projeto segue conceitos de **DDD**, separando responsabilidades em diferentes camadas, segue o exemplo abaixo:
 
 ```
 RoyalGames
  ├── Domain
- ├── Application
- ├── Infrastructure
+ ├── Applications
  ├── Controllers
- └── Configurations
+ ├── Interfaces
+ └── Repositories
 ```
