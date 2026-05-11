@@ -9,17 +9,17 @@
 
 #banner{
     width: 80%;
-    border: 1px solid #8C8699;
+    /* border: 1px solid #8C8699; */
     
 }
 
-.lado_esquerdo , .logar, .inputs{
+.lado_direito , .logar, .inputs{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.lado_esquerdo{
+.lado_direito{
     border: 1px solid #8C8699;
     gap: 15%;
     border-radius: .5vw;
@@ -28,7 +28,7 @@
     padding: 10% 10%;
 }
 
-.lado_esquerdo img{
+.lado_direito img{
     width: 80%;
 }
 
@@ -37,7 +37,7 @@
     gap:    10%;
     width: fit-content;
     height: 50vh;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 
@@ -50,11 +50,114 @@
     width: 100%;
     height: 100%;
     color: var(--branco);
-    font-weight: 600;
-    font-family: var(--font-padrao);
+    font-weight: 500;
+    font-family: var(--font-exo_2);
+    font-size: clamp(1vw, 1.2rem, 2vw);
+}
+
+.inputs input{
+    background-color: #464052;
+    border: 1px solid var(--branco);
+    padding: 1% 2%;
+    border-radius: .5vw;
+}
+
+.logar button{
+    width: 30%;
+    font-size: clamp(1.5vw, 1.3rem, 3vw);
+    height: 10%;
+    background-color: transparent;
+    border: 1px solid var(--vermelho);
+    border-radius: .5vw;
+    color: var(--branco);
+    transition: .2s ease-in-out;
+}
+
+.logar button:hover{
+    border: 1px solid var(--branco);
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 
 
 
 
+@media (max-width: 768px) {
+    .main{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #banner{
+        display: none;
+    }
+
+    .lado_direito{
+        width: fit-content;
+        gap: 10vw;
+        border: none;
+    }
+    .lado_direito img{
+        width: 90%;
+    }
+
+    .logar{
+        /* margin-top: 10%; */
+        height: 60vh;
+        width: 100%;
+        gap: 5%;
+    }
+
+    .inputs{
+        width: 130%;
+        height: 18%;
+    }
+
+    .inputs input, .inputs label{
+        font-size: clamp(1.5vw, 2rem, 3vw);
+    }
+
+    .logar button{
+        width: 60%;
+        height: 12%;
+        font-size: clamp(2vw, 2.1rem, 4.5vw);
+    }
+
+    /* 
+.inputs{
+    width: 25vw;
+    height: 20%;
+}
+
+.inputs input, .inputs label{
+    width: 100%;
+    height: 100%;
+    color: var(--branco);
+    font-weight: 500;
+    font-family: var(--font-exo_2);
+    font-size: clamp(1vw, 1.2rem, 2vw);
+}
+
+.inputs input{
+    background-color: #464052;
+    border: 1px solid var(--branco);
+    padding: 1% 2%;
+    border-radius: .5vw;
+}
+
+.logar button{
+    width: 30%;
+    font-size: clamp(1.5vw, 1.3rem, 3vw);
+    height: 10%;
+    background-color: transparent;
+    border: 1px solid var(--vermelho);
+    border-radius: .5vw;
+    color: var(--branco);
+    transition: .2s ease-in-out;
+}
+    */
+
+    
+    
+}

@@ -4,7 +4,7 @@ const Login = () => {
   return (
       <main className={`${styles.main} layout`}>
         <img src="../img/png/mulher_login.png" id={styles.banner}alt="" />
-        <aside className={styles.lado_esquerdo}>
+        <aside className={styles.lado_direito}>
           <img src="../svg/logo.svg" alt="" />
           <form className={styles.logar}>
             <div className={styles.inputs}>
