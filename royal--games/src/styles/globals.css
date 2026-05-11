@@ -14,9 +14,9 @@
   --branco: white;
   --cinza-branco: #D6D2E6;
 
-  --font-titulo: var(--font-orbitron);
+  /* --font-titulo: var(--font-orbitron);
   --font-texto: var(--font-inter);
-  --font-padrao: var(--font-exo_2)
+  --font-padrao: var(--font-exo_2) */
 }
 
 body{
