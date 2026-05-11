@@ -1,0 +1,60 @@
+.main{
+    margin: 2.5% 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+#banner{
+    width: 80%;
+    border: 1px solid #8C8699;
+    
+}
+
+.lado_esquerdo , .logar, .inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lado_esquerdo{
+    border: 1px solid #8C8699;
+    gap: 15%;
+    border-radius: .5vw;
+    height: 100%;
+    width: 30vw;
+    padding: 10% 10%;
+}
+
+.lado_esquerdo img{
+    width: 80%;
+}
+
+
+.logar{
+    gap:    10%;
+    width: fit-content;
+    height: 50vh;
+    border: 1px solid black;
+}
+
+
+.inputs{
+    width: 25vw;
+    height: 20%;
+}
+
+.inputs input, .inputs label{
+    width: 100%;
+    height: 100%;
+    color: var(--branco);
+    font-weight: 600;
+    font-family: var(--font-padrao);
+}
+
+
+
+
+

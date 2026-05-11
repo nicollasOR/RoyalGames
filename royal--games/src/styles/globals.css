@@ -1,0 +1,29 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-fredoka);
+}
+
+:root{
+
+  --vermelho: #FF004C;
+  --preto: #0B0616;
+  --roxo-acizentado: #221C2D;
+  --roxo: #7A3BFF;
+  --branco: white;
+  --cinza-branco: #D6D2E6;
+
+  --font-titulo: var(--font-orbitron);
+  --font-texto: var(--font-inter);
+  --font-padrao: var(--font-exo_2)
+}
+
+body{
+  background-color: var(--roxo-acizentado);
+}
+
+.layout
+{
+  width: 80%;
+}
