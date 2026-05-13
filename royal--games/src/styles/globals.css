@@ -48,7 +48,7 @@ label,
 }
 
 body {
-  background-color: var(--roxo-acizentado);
+  background: var(--fundo-home);
   scroll-behavior: smooth;
 }
 
@@ -56,16 +56,3 @@ body {
   width: 80%;
 }
 
-.supInfer {
-  display: inline-flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 30%;
-  width: 100%;
-  height: clamp(5vw, 10vh, 10vw);
-  background-color: linear-gradient(270deg, #221C2D 44.71%, #282047 100%);
-}
-
-.logo {
-  width: 11%;
-}

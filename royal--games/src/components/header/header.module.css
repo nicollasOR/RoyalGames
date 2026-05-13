@@ -37,13 +37,13 @@
     transition: .4s ease-in-out;
 }
 
-nav :first-child {
+.header nav :first-child {
     background-color: transparent;
     border: none;
 
 }
 
-nav :first-child:hover {
+.header nav :first-child:hover {
     background-color: black;
     color: var(--vermelho);
     border: 1px solid var(--vermelho);

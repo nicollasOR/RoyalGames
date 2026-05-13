@@ -1,15 +1,15 @@
-import styles from './cards.modules.css';
+import styles from './cards.module.css';
 
 
 const Cards = () =>{
 
     return(
-        <li>
-            <img src="" alt="" />
+        <article className={styles.card}>
+            <img src="../img/png/teste.png" alt="" />
             <span>Minecraft</span>
             <p>R$ 70,00</p>
             <button>Detalhes</button>
-        </li>
+        </article>
     )
 }
 
