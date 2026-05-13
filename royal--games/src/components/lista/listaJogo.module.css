@@ -1,0 +1,67 @@
+.jogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* height: fit-content; */
+    height: 70vh;
+    gap: 10%;
+}
+
+.titulos {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.titulos h1 {
+    font-size: clamp(2vw, 3rem, 5vw);
+}
+
+.titulos hr {
+    width: 100%;
+    height: .1vh;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 10%;
+    width: 70%;
+}
+
+.filtros input{
+    width: 18%;
+    height: 5vh;
+    font-size: clamp(1vw, 1.2rem, 2vw);
+    color: var(--preto);
+    font-weight: 600;
+    outline: none;
+    padding: 1% 0 1% 1%;
+    border-radius: .5vw;
+}
+.filtros .botoes{
+    width: 25%;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+}
+.filtros div button{
+    width: 100%;
+    white-space: nowrap;
+    height: 5vh;
+    font-size: clamp(1vw, 1.2rem, 2vw);
+    color: var(--preto);
+    font-weight: 600;
+    outline: none;
+    padding: 1% 0 1% 1%;
+    border-radius: .5vw;
+    transition: .4s ease-in-out;
+}
+
+.filtros div button:hover{
+    background-color: var(--vermelho);
+    cursor: pointer;
+}

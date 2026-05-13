@@ -1,0 +1,44 @@
+.main {
+    width: 100%;
+}
+
+.banner {
+    display: grid;
+    grid-template-columns: 1fr .8fr;
+    width: 100%;
+    padding: 2% 0;
+    margin: 5% auto;
+    height: clamp(40vw, 60vh, 90vw);
+    background: linear-gradient(270deg, #221C2D 44.71%, #282047 100%);
+    /* background-color: black; */
+    /* align-items: center; */
+}
+
+
+.textos {
+    display: flex;
+    flex-direction: column;
+    gap: 20%;
+    padding-top: 13%;
+    padding-left: 12%;
+}
+
+.textos h1 {
+    font-size: clamp(1vw, 2.5rem, 3vw);
+}
+
+.textos p {
+    font-size: clamp(1vw, 1.6rem, 3vw);
+}
+
+
+
+.hero {
+    width: 55%;
+    /* height: 100%; */
+    /* padding: 0 5% 0 0; */
+    justify-self: flex-end;
+    align-self: center;
+}
+
+@media (max-width: 768px) {}

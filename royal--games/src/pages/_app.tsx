@@ -6,7 +6,7 @@ import { Exo_2, Orbitron, Inter  } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 
 const exo2 = Exo_2({
-  variable: "--font-exo_2",
+  variable: "--font-exo2",
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"]
 }); 

@@ -51,7 +51,6 @@
     height: 100%;
     color: var(--branco);
     font-weight: 500;
-    font-family: var(--font-exo_2);
     font-size: clamp(1vw, 1.2rem, 2vw);
 }
 
@@ -65,16 +64,17 @@
 .logar button{
     width: 30%;
     font-size: clamp(1.5vw, 1.3rem, 3vw);
-    height: 10%;
+    height: 12%;
     background-color: transparent;
-    border: 1px solid var(--vermelho);
+    border: 2px solid var(--vermelho);
     border-radius: .5vw;
     color: var(--branco);
     transition: .2s ease-in-out;
+    padding: 1% 2%;
 }
 
 .logar button:hover{
-    border: 1px solid var(--branco);
+    border: 2px solid var(--branco);
     cursor: pointer;
     color: rgba(255, 255, 255, 0.8);
 }
