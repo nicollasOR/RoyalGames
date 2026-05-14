@@ -1,0 +1,97 @@
+.cadastro {
+  width: 80%;
+  height: 90vh;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10% auto;
+  gap: 2%;
+  white-space: nowrap;
+}
+.cadastro hr {
+  width: 50%;
+}
+
+.inserir_dados {
+  margin: 2% 2%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+  /* height: 70vh; */
+  height: 50%;
+  height: 70%;
+  border: 1px solid red;
+  gap: 10%;
+  
+}
+.inserir_dados label{
+    font-size: clamp(.7vw, 1.2rem, 1.5vw);
+    font-weight: 700;
+    
+}
+
+.inserir_dados aside {
+  margin: 0 auto;
+}
+.lado_esq,
+.lado_dir {
+  border: 1px solid black;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.lado_esq{
+    gap: 5%;
+    
+}
+
+.inserir_dados aside div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* gap: 0.2vw; */
+  border: 1px solid white;
+}
+
+.secao_inserir {
+  /* height: 100%; */
+  width: 100%;
+  border: 1px solid black;
+}
+
+.secao_inserir input, .secao_inserir textarea, .opcoes {
+  background-color: black;
+  padding: 2% 0 2% 2%;
+  color: white;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-size: clamp(1vw, 1.2rem, 2vw);
+}
+
+#item1 {
+  width: 100%;
+}
+
+.inserir_dados .lado_esq .list{
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}
+
+.list .secao_inserir input, .list .secao_inserir .opcao{
+    width: 100%;
+}
+
+#plataforma, #imagem{
+    width: 50%;
+}
+
+#inline{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}

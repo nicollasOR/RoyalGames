@@ -6,16 +6,20 @@
 }
 
 :root {
-
-  --vermelho: #FF004C;
-  --preto: #0B0616;
-  --roxo-acizentado: #221C2D;
-  --roxo: #7A3BFF;
+  --vermelho: #ff004c;
+  --preto: #0b0616;
+  --roxo-acizentado: #221c2d;
+  --roxo: #7a3bff;
   --branco: white;
-  --cinza-branco: #D6D2E6;
+  --cinza-branco: #d6d2e6;
 
-  --fundo: linear-gradient(270deg, #221C2D 44.71%, #282047 100%);
-  --fundo-home: radial-gradient(86.81% 50% at 50% 50%, #362968 0%, #2C224C 32.21%, #221B2F 100%);
+  --fundo: linear-gradient(270deg, #221c2d 44.71%, #282047 100%);
+  --fundo-home: radial-gradient(
+    86.81% 50% at 50% 50%,
+    #362968 0%,
+    #2c224c 32.21%,
+    #221b2f 100%
+  );
 }
 
 h1,
@@ -33,7 +37,19 @@ label {
   color: var(--cinza-branco);
 }
 
+h1 {
+  font-size: clamp(2vw, 3rem, 5vw);
+}
 
+hr {
+  color: var(--vermelho);
+  border: 1.8px solid var(--vermelho);
+}
+
+input {
+  border-radius: 0.2vw;
+  outline: none;
+}
 
 p,
 span,
@@ -44,7 +60,6 @@ button,
 label,
 .href {
   font-family: var(--font-exo2);
-
 }
 
 body {
@@ -55,4 +70,3 @@ body {
 .layout {
   width: 80%;
 }
-
