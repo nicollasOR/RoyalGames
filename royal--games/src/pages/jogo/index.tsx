@@ -19,7 +19,7 @@ const Produto = () => {
           <div className={styles.list}>
           <div className={styles.secao_inserir}>
             <label htmlFor="preco">Valor</label>
-            <input id={styles.item2} type="text" name="preco"/>
+            <input id={styles.item2} type="number" name="preco"/>
           </div>
           <div  className={styles.secao_inserir}>
             <label htmlFor="">Gênero</label>
@@ -38,8 +38,9 @@ const Produto = () => {
             </select>
 
           </div>
+          {/* </div> */}
           </div>
-        <div id={styles.inline}>
+        <div className={styles.list} id={styles.inline}>
           <div  className={styles.secao_inserir} id={styles.plataforma}>
             <label htmlFor="">Plataforma</label>
            <select name="" id="" className={styles.opcoes}>
@@ -60,8 +61,8 @@ const Produto = () => {
             <textarea id={styles.item7} name=""></textarea>
           </div>
           </aside>
-
         </div>
+
         <button>Cadastrar</button>
       </section>
       <Lista />
