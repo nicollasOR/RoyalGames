@@ -21,7 +21,7 @@
   /* height: 70vh; */
   height: 50%;
   height: 70%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   gap: 10%;
   
 }
@@ -36,7 +36,7 @@
 }
 .lado_esq,
 .lado_dir {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 100%;
   width: 100%;
   display: flex;
@@ -53,13 +53,13 @@
   flex-direction: column;
   gap: 10px;
   /* gap: 0.2vw; */
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
 
 .secao_inserir {
   /* height: 100%; */
   width: 100%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .secao_inserir textarea{
@@ -110,4 +110,22 @@
     gap: 50px;
 }
 
+.cadastro button {
+    width: 15%;
+    font-size: clamp(1.3vw, 1rem, 3vw);
+    height: 10%;
+    background-color: transparent;
+    border: 2px solid var(--vermelho);
+    border-radius: .5vw;
+    color: var(--branco);
+    transition: .2s ease-in-out;
+    padding: 1px 0;
+    margin: 2% 0;
+}
+
+.cadastro button:hover{
+    border: 2px solid var(--branco);
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+}
 
