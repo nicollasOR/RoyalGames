@@ -3,6 +3,8 @@
     export const notificacao = (msg:string) => toast.success(msg);
     export const erro = (msg:string) => toast.error(msg);
 
+    export const notificaoPost = (msg:string) => toast.success
+    // export ?
     
 
     export const ToastconfirmarExclusao = (aoConfirmar: () => void) => {
