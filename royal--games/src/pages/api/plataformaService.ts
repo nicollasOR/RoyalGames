@@ -9,7 +9,7 @@ export async function cadastrarPlataforma(nome:string){
     }
 }
 
-export async function listarCategoriaService(){
+export async function listarPlataforma(){
     try{
         const response = await api.get("Plataforma");
         return response;

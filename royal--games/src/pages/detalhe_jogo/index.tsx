@@ -1,8 +1,48 @@
 import Header from "@/components/header/Header";
 import style from "./detalhe.module.css";
 import Footer from "@/components/footer/Footer";
+import { useState } from "react";
+
+
+interface produtoListagem {
+  nome: string;
+  descricao: string;
+  imagem: File | null;
+  preco: string;
+  plataformaIds: number[];
+  generoIds: number[];
+  classificacaoId: number[];
+  classificaco: string,
+  plataforma: string,
+  genero: string, 
+}
+
+  interface Classificacao{
+    classificacaoId: number,
+    nomeClassificacao: string
+  }
+
+  interface Genero{
+    generoId: number,
+    nome: string
+  }
+
+  interface Plataforma{
+    plataformaId: number,
+    nome: string
+  }
 
 const detalhe = () => {
+  const[jogo, setJogo] = useState<produtoListagem>()
+    const[plataforma, setPlataformaIds] = useState<Plataforma[]>([],)
+    const[classificacao, setClassificacaoId] = useState<Classificacao[]>([],)
+    const[genero, setGeneroIds] = useState<Genero[]>([],)
+
+
+    async function listarPlataforma_Jogo(){
+      const list = await listarPlataforma()
+    }
+  
   return (
     <>
       <Header />
