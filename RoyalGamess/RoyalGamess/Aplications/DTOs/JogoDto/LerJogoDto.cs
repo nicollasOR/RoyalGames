@@ -6,9 +6,9 @@
         public int JogoId { get; set; }
 
         public string Nome { get; set; } = null!;
-        public string Descrição { get; set; } = null!;
+        public string Descricao { get; set; } = null!;
         public IFormFile Imagem { get; set; }
-        public decimal Preço { get; set; }
+        public decimal Preco { get; set; }
         public bool StatusJogo { get; set; }
         // public bool? StatusJogo { get; set; }
         public List<int> plataformaIds { get; set; } = new();
@@ -20,7 +20,7 @@
 
 
         public int? classificacaoId { get; set; }
-        public string? Classificação { get; set; } = null!; // analisar
+        public string? Classificacao { get; set; } = null!; // analisar
 
         public int? UsuarioId { get; set; }
         public string? UsuarioNome { get; set; } 

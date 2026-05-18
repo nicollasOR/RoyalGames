@@ -56,10 +56,10 @@ namespace RoyalGamess.Aplications.Services
         {
             if (string.IsNullOrEmpty(criarDto.Nome))
                 throw new DomainException("Nome de jogo não existe");
-            if (criarDto.Preço <= 0)
-                throw new DomainException("Preço do jogo deve ser maior que zero");
-            if (criarDto.Descrição == null)
-                throw new DomainException("Jogo deve ter descrição");
+            if (criarDto.Preco <= 0)
+                throw new DomainException("Preco do jogo deve ser maior que zero");
+            if (criarDto.Descricao == null)
+                throw new DomainException("Jogo deve ter Descricao");
             if (criarDto.Imagem == null)
                 throw new DomainException("Jogo deve ter uma imagem");
             if (criarDto.plataformaIds == null || criarDto.plataformaIds.Count == 0)
@@ -91,8 +91,8 @@ namespace RoyalGamess.Aplications.Services
             Jogo jogo = new Jogo
             {
                 Nome = criarDto.Nome,
-                Preco = criarDto.Preço,
-                Descrição = criarDto.Descrição,
+                Preco = criarDto.Preco,
+                Descrição = criarDto.Descricao,
                 Imagem = ImagemParaByte.ConverterImagem(criarDto.Imagem),
                 StatusJogo = true,
                 UsuarioIdFK = usuarioId,
@@ -125,12 +125,12 @@ namespace RoyalGamess.Aplications.Services
 
             if(jogoDto.generoIds == null || jogoDto.generoIds.Count == 0)
                 throw new DomainException("Jogo não possui gênero");
-            if (jogoDto.Preço < 0)
-                throw new DomainException("Jogo tem que ter preço");
+            if (jogoDto.Preco < 0)
+                throw new DomainException("Jogo tem que ter Preco");
 
             jogoBanco.Nome = jogoDto.Nome;
-            jogoBanco.Descrição = jogoDto.Descrição;
-            jogoBanco.Preco = jogoDto.Preço;
+            jogoBanco.Descrição = jogoDto.Descricao;
+            jogoBanco.Preco = jogoDto.Preco;
             if (jogoBanco.Imagem != null && jogoBanco.Imagem.Length > 0)
             jogoBanco.Imagem = ImagemParaByte.ConverterImagem(jogoDto.Imagem);
 

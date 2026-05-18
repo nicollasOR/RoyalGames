@@ -12,7 +12,7 @@ namespace RoyalGamess.Aplications.Conversões
             {
                 JogoId = jogo.JogoId,
                 Nome = jogo.Nome,
-                Descrição = jogo.Descrição,
+                Descricao = jogo.Descrição,
                 StatusJogo = jogo.StatusJogo ?? true,
                 // StatusJogo = jogo.StatusJogo,
                 plataformaIds = jogo.PlataformaIdFK.Select(id => id.PlataformaId).ToList(),
@@ -20,7 +20,7 @@ namespace RoyalGamess.Aplications.Conversões
                 Genero = jogo.GeneroIdFK.Select(nomeGen => nomeGen.Nome).ToList(),
                 generoIds = jogo.GeneroIdFK.Select(id => id.GeneroId).ToList(),
                 classificacaoId = jogo.ClassificaçãoIdFK,
-                Classificação = jogo.ClassificaçãoIdFKNavigation?.Classificacao,
+                Classificacao = jogo.ClassificaçãoIdFKNavigation?.Classificacao,
 
                 UsuarioId = jogo.UsuarioIdFK,
                 UsuarioEmail = jogo.UsuarioIdFKNavigation?.Email,
