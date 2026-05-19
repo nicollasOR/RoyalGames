@@ -37,11 +37,19 @@ const Jogo = () => {
   const[descricao, setDescricao] = useState<string>("")
   const[preco, setPreco] = useState<string>("")
   const[imagem, setImg] = useState<File | null>(null)
+
   const[plataformaIds, setPlataformaIds] = useState<number[]>([],)
-  const[classificacaoId, setClassificacaoId] = useState<number[]>([],)
+  // const[classificacaoId, setClassificacaoId] = useState<number[]>([],)
+  const[classificacaoId, setClassificacaoId] = useState<number>(0)
   const[generoIds, setGeneroIds] = useState<number[]>([],)
 
-  const[estaAutenticado, setEstaAutenticado] = useState<string>("")
+  //produtos do get
+  const[plataformaIdsList, setPlataformaIdsList] = useState<Plataforma[]>([])
+  // const[classificacaoId, setClassificacaoId] = useState<number[]>([],)
+  const[classificacaoIdList, setClassificacaoIdList] = useState<Classificacao[]>([])
+  const[generoIdsList, setGeneroIdsList] = useState<Genero[]>([])
+
+  const[estaAutenticado, setEstaAutenticado] = useState(false)
 
   const router = useRouter()
   const id = router.query.id
@@ -49,17 +57,17 @@ const Jogo = () => {
 
   async function listarPlataforma_Jogo(){
     const list = await listarPlataforma()
-    setPlataformaIds(list.data)
+    setPlataformaIdsList(list.data)
   }
 
   async function listarGenero_Jogo(){
     const list = await listarGenero()
-    setGeneroIds(list.data)
+    setGeneroIdsList(list.data)
   }
 
   async function listarClassificacao_Jogo(){
     const list = await listarClassificacao()
-    setClassificacaoId(list.data)
+    setClassificacaoIdList(list.data)
   }
 
   async function carregarInformacoes(){
@@ -67,9 +75,9 @@ const Jogo = () => {
     const produto = await listarJogoPorId(Number(id))
     setNome(produto.nome)
     setDescricao(produto.descrição)
-    setClassificacaoId(produto.classificacaoId)
-    setGeneroIds(produto.generoIds)
-    setPlataformaIds(produto.plataformaIds)
+    setClassificacaoIdList(produto.classificacaoId)
+    setGeneroIdsList(produto.generoIds)
+    setPlataformaIdsList(produto.plataformaIds)
   }
 
   async function salvarProduto(e: React.FormEvent<HTMLFormElement>) {
@@ -105,6 +113,25 @@ const Jogo = () => {
     }
   }
 
+  useEffect(() => {
+    if(!router.isReady) return;
+    if(!verificarAutenticacao())
+      {
+          router.push("/home")
+          return;
+    }
+
+    setEstaAutenticado(true)
+    listarClassificacao_Jogo()
+    listarGenero_Jogo()
+    listarPlataforma_Jogo()
+    carregarInformacoes()
+
+    
+  }, [router.isReady, id] )
+
+  if(!estaAutenticado) return null
+
 
   
   
@@ -125,60 +152,109 @@ const Jogo = () => {
     <>
       <Header />
       <section className={styles.cadastro}>
-        <h1>Cadastrar novo jogo</h1>
+        <h1>{telaEditar ? "Editar Jogo" : "Criar Jogo"}</h1>
         <hr />
-        <div className={styles.inserir_dados}>
+        <form  className={styles.inserir_dados} onSubmit={salvarProduto}>
           <aside className={styles.lado_esq}>
           <div className={styles.secao_inserir}>
             <label htmlFor="nome">Nome</label>
-            <input id={styles.item1} type="text" name="nome"/>
+            <input id={styles.item1} value={nome} onChange={(e) => setNome(e.target.value)} type="text" name="nome"/>
           </div>
           <div className={styles.list}>
           <div className={styles.secao_inserir}>
             <label htmlFor="preco">Valor</label>
-            <input id={styles.item2} type="number" name="preco"/>
+            <input id={styles.item2} value={preco} onChange={(e) => setPreco(e.target.value)} type="number" name="preco"/>
           </div>
           <div  className={styles.secao_inserir}>
             <label htmlFor="">Gênero</label>
-           <select name="" id="" className={styles.opcoes}>
-            <option value="" className={styles.opcao}>fasdfasd</option>
-            <option value="" className={styles.opcao}>fasdfasd</option>
-            <option value="" className={styles.opcao}>fasdfasd</option>
+            
+           <select name="" id="" className={styles.opcoes} value={generoIdsList.map(String)} onChange={(e) =>{ const selecionados = Array.from(e.target.selectedOptions, (o) => Number(o.value)); setGeneroIds(selecionados)}}>
+            {generoIdsList.map((g) =>(
+              <option className={styles.opcao}  key={g.generoId} value={g.generoId}> {g.nome}</option>
+            ))}
+            {/* 
+            
+                            <select
+                  multiple
+                  className={styles.opcoes}
+                  value={generoIdsSelecionados.map(String)}
+                  onChange={(e) => {
+                    const selecionados = Array.from(e.target.selectedOptions, (o) => Number(o.value));
+                    setGeneroIdsSelecionados(selecionados);
+                  }}
+                >
+                  {listaGeneros.map((g) => (
+                    <option key={g.generoId} value={g.generoId}>{g.nome}</option>
+                  ))}
+            */}
+
+
+
             </select>
           </div>
           <div  className={styles.secao_inserir}>
             <label htmlFor="">Classificação Indicativa</label>
-            <select name="" id="" className={styles.opcoes}>
-            <option value="" className={styles.opcao}>fasdfasd</option>
-            <option value="" className={styles.opcao}>fasdfasd</option>
-            <option value="" className={styles.opcao}>fasdfasd</option>
-            </select>
+            <select name="" id="" className={styles.opcoes} 
+            value={classificacaoId}
+            onChange={(e) => setClassificacaoId(Number(e.target.value))}>
+              <option value={0}>Selecione</option>
+              {classificacaoIdList.map((c) =>(
+                <option className={styles.opcao} key={c.classificacaoId} value={c.classificacaoId}>
+                {c.nomeClassificacao}
+              </option>
+              ))}
 
+            
+
+            </select>
+            {/*             <select
+              value={categoriasSelecionadas.map(String)}
+              multiple
+              onChange={(e) =>
+                setCategoriaSelecionadas(
+                  Array.from(e.target.selectedOptions).map((option) =>
+                    Number(option.value)
+                  )
+                )
+              }
+              id={styles.select}
+            >
+              {categorias.map((item) => (
+                <option value={item.categoriaId} key={item.categoriaId}>
+                  {item.nome}
+                </option>
+              ))}*/}
           </div>
           {/* </div> */}
           </div>
         <div className={styles.list} id={styles.inline}>
           <div  className={styles.secao_inserir} id={styles.plataforma}>
             <label htmlFor="">Plataforma</label>
-           <select name="" id="" className={styles.opcoes}>
-            <option value="" className={styles.opcao}>fasdfasd</option>
-            <option value="" className={styles.opcao}>fasdfasd</option>
-            <option value="" className={styles.opcao}>fasdfasd</option>
+           <select name="" id="" className={styles.opcoes} value={plataformaIdsList.map(String)} onChange={(e) => { const selecionados = Array.from(e.target.selectedOptions, (o) => Number(o.value)); setPlataformaIds(selecionados)}}>
+            {plataformaIdsList.map((plat) => (
+              <option className={styles.opcao} value={plat.plataformaId} key={plat.plataformaId}> {plat.nome}</option>
+            ))}
             </select>
           </div>
           <div className={styles.secao_inserir} id={styles.imagem}>
             <label htmlFor="">Imagem</label>
-            <input id={styles.item6} type="file" />
+            <input id={styles.item6} 
+            onChange={(e) => {
+                if (e.target.files && e.target.files[0])
+                  setImg(e.target.files[0]);
+                else return;
+              }}
+            type="file" />
           </div>
           </div>
           </aside>
           <aside className={styles.lado_dir}>
           <div className={styles.secao_inserir}>
             <label htmlFor="">Descrição</label>
-            <textarea id={styles.item7} name=""></textarea>
+            <textarea id={styles.item7} value={descricao} onChange={(e) => setDescricao(e.target.value)} name=""></textarea>
           </div>
           </aside>
-        </div>
+        </form>
 
         <button>Cadastrar</button>
       </section>

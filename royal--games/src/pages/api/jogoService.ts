@@ -8,7 +8,8 @@ type produtoPost = {
   preco: string;
   plataformaIds: number[];
   generoIds: number[];
-  classificacaoId: number[];
+  // classificacaoId: number[];
+  classificacaoId: number;
 };
 
 interface produtoListagem {
@@ -30,10 +31,10 @@ export class jogoDTO_typescripto {
     if (dados.imagem) {
       formData.append("imagem", dados.imagem);
     }
-
-    dados.classificacaoId.forEach((id) => {
-      formData.append("classificacaoId", id.toString());
-    });
+    formData.append("classificacaoId", dados.classificacaoId.toString());
+    // dados.classificacaoId.forEach((id) => {
+    //   formData.append("classificacaoId", id.toString());
+    // });
 
     dados.plataformaIds.forEach((id) => {
       formData.append("plataformaIds", id.toString());
@@ -103,9 +104,10 @@ export async function excluirJogo(jogoId: number) {
   }
 }
 
-export async function editarJogo(jogoId: number) {
+export async function editarJogo(jogoId: number, dados: produtoPost) {
     try {
-        await api.put("Jogo/" + jogoId)
+      const formDatas = jogoDTO_typescripto.toFormData(dados);
+        await api.put("Jogo/" + jogoId, formDatas)
     }
     catch (error: any) {
     throw new Error(error.response.data);
