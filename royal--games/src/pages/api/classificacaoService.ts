@@ -10,10 +10,10 @@ export async function listarClassificacao(){
     }
 }
 
-export async function cadastrarClassificacao(){
+export async function cadastrarClassificacao(nome: string){
     try{
-       const response = await api.post("ClassificacaoIndicativa") 
-       
+       const response = await api.post("ClassificacaoIndicativa", { nome }) 
+       return response;
     }
 
     catch(error: any){

@@ -64,3 +64,77 @@
   /* gap: 0.2vw; */
   /* border: 1px solid white; */
 }
+
+.secao_inserir {
+  /* height: 100%; */
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+.secao_inserir textarea{
+  width: 100%;
+  height: 10vh;
+  resize: none;
+}
+
+.secao_inserir input, .secao_inserir textarea, .opcoes {
+  background-color: black;
+  padding: 2% 0 2% 2%;
+  color: white;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-size: clamp(1vw, 1.2rem, 2vw);
+}
+
+#imagem input{
+  width: 100%;
+  font-size: .7rem;
+}
+
+#item1 {
+  width: 100%;
+}
+
+#item2::-webkit-outer-spin-button,
+#item2::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.inserir_dados .lado_esq .list{
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}
+
+.list .secao_inserir input, .list .secao_inserir .opcao{
+    width: 100%;
+}
+
+#plataforma, #imagem{
+    width: 50%;
+}
+
+#inline{
+    gap: 50px;
+}
+
+.cadastro button {
+    width: 15%;
+    font-size: clamp(1.3vw, 1rem, 3vw);
+    height: 10%;
+    background-color: transparent;
+    border: 2px solid var(--vermelho);
+    border-radius: .5vw;
+    color: var(--branco);
+    transition: .2s ease-in-out;
+    padding: 1px 0;
+    margin: 2% 0;
+}
+
+.cadastro button:hover{
+    border: 2px solid var(--branco);
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8);
+}
+

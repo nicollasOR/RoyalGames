@@ -1,9 +1,9 @@
 import { api } from "./api";
 
-export async function cadastrarGenero(nome: string){
-
+export async function listarGenero(){
     try{
-        await api.post("Genero", {nome});
+        const response = await api.get("Genero");
+        return response;
     }
 
     catch(error: any){
@@ -11,9 +11,10 @@ export async function cadastrarGenero(nome: string){
     }
 }
 
-export async function listarGenero(){
+export async function cadastrarGenero(nome: string){
+
     try{
-        const response = await api.get("Genero");
+        const response = await api.post("Genero", {nome});
         return response;
     }
 

@@ -19,7 +19,7 @@ import { listarGenero } from "../api/generoService";
 import { listarClassificacao } from "../api/classificacaoService";
 import { David_Libre } from "next/font/google";
 interface Classificacao {
-  classificacaoSelecionadas: number;
+  classificacaoId: number;
   nomeClassificacao: string;
 }
 
@@ -202,7 +202,7 @@ const Jogo = () => {
                     name=""
                     id=""
                     className={styles.opcoes}
-                    value={genero.map(String)}
+                    value={generosSelecionados.map(String)}
                     onChange={(e) => {
                       const selecionados = Array.from(
                         e.target.selectedOptions,
@@ -228,20 +228,20 @@ const Jogo = () => {
                     name=""
                     id=""
                     className={styles.opcoes}
-                    value={classificacaoSelecionadas[0]}
+                    value={classificacaoSelecionadas.map(String)}
                     onChange={(e) =>
                       setClassificacoesSelecionadas(
-                        [Number(e.target.selectedOptions[0].value)]
+                        Array.from(e.target.selectedOptions).map((option) => Number(option.value))
                       )
                     }
                   >
                     {classificacao.map((c) => (
                       <option
                         className={styles.opcao}
-                        key={c.classificacaoSelecionadas}
-                        value={c.classificacaoSelecionadas}
+                        key={c.classificacaoId}
+                        value={c.classificacaoId}
                       >
-                        {c.classificacaoSelecionadas}
+                        {c.nomeClassificacao}
                       </option>
                     ))}
                   </select>
@@ -255,14 +255,12 @@ const Jogo = () => {
                     name=""
                     id=""
                     className={styles.opcoes}
-                    value={plataformas.map(String)}
-                    onChange={(e) => {
-                      const selecionados = Array.from(
-                        e.target.selectedOptions,
-                        (o) => Number(o.value),
-                      );
-                      setPlataformasSelecionadas(selecionados);
-                    }}
+                    value={plataformaSelecionadas.map(String)}
+                    onChange={(e) =>
+                      setPlataformasSelecionadas(
+                        Array.from(e.target.selectedOptions).map((option) => Number(option.value))
+                      )
+                    }
                   >
                     {plataformas.map((plat) => (
                       <option

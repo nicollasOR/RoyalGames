@@ -25,7 +25,7 @@ const Plataforma = () =>{
         e.preventDefault();
         try{
             await cadastrarPlataforma(plataforma)
-            notificacao("Cadastro de Plataforma realizado com sucesso!")
+            notificacao(`Cadastro de ${plataforma} realizado com sucesso`)
 
         }
         catch(errorTela: any){
@@ -46,9 +46,9 @@ const Plataforma = () =>{
         <Header/>
         <article className={styles.main}>
             <h1>Criar Plataforma</h1>
-            <form action="" className={styles.formulario} onSubmit={postPlataforma} >
-            <input type="text" value={plataforma} onChange={(e) => setPlataforma(e.target.value)} />
-            <div>
+            <form action="" className={styles.formulario} onSubmit={postPlataforma}>
+            <input type="text" value={plataforma} onChange={(e) => setPlataforma(e.target.value)} placeholder="oi" />
+            <div className={styles.enviar_botoes}>
             <button>Cancelar</button>
             <button>Salvar</button>
             </div>
