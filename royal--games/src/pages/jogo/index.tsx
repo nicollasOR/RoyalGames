@@ -140,11 +140,10 @@ const Jogo = () => {
         notificacao("Jogo editado!");
       } else {
         await cadastrarJogo(dados);
-        notificacao("Jogo cadastrado!");
+        notificacao(`${nome} cadastrado!`);
       }
     } catch (error: any) {
-      console.log("faz o L")
-      console.log(error.message);
+      console.log(error.message + ` ${nome}`);
     }
   }
 
@@ -303,7 +302,7 @@ const Jogo = () => {
           <button>Cadastrar</button>
         </form>
       </section>
-      <Lista />
+      {/* <Lista /> */}
       <Footer />
     </>
   );
