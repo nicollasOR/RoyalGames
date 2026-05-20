@@ -1,4 +1,3 @@
-import Produto from "../jogo";
 import { api } from "./api";
 
 type produtoPost = {
@@ -8,8 +7,7 @@ type produtoPost = {
   preco: string;
   plataformaIds: number[];
   generoIds: number[];
-  // classificacaoId: number[];
-  classificacaoId: number;
+  classificacaoId: number[];
 };
 
 interface produtoListagem {
@@ -31,7 +29,8 @@ export class jogoDTO_typescripto {
     if (dados.imagem) {
       formData.append("imagem", dados.imagem);
     }
-    formData.append("classificacaoId", dados.classificacaoId.toString());
+    formData.append("classificacaoId", dados.classificacaoId.toString())
+    // formData.append("classificacaoId", dados.classificacaoId.toString());
     // dados.classificacaoId.forEach((id) => {
     //   formData.append("classificacaoId", id.toString());
     // });
@@ -40,7 +39,7 @@ export class jogoDTO_typescripto {
       formData.append("plataformaIds", id.toString());
     });
     dados.generoIds.forEach((id) => {
-      formData.append("generosIds", id.toString());
+      formData.append("generoIds", id.toString());
     });
     formData.append("descricao", dados.descricao);
 
