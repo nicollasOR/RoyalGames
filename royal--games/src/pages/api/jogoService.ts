@@ -17,7 +17,7 @@ interface produtoListagem {
   preco: string;
   plataformaIds: number[];
   generoIds: number[];
-  classificacaoId: number[];
+  classificacaoId: number;
   statusJogo: boolean;
 }
 
@@ -29,11 +29,10 @@ export class jogoDTO_typescripto {
     if (dados.imagem) {
       formData.append("imagem", dados.imagem);
     }
-    formData.append("classificacaoId", dados.classificacaoId.toString())
-    // formData.append("classificacaoId", dados.classificacaoId.toString());
-    // dados.classificacaoId.forEach((id) => {
-    //   formData.append("classificacaoId", id.toString());
-    // });
+    // formData.append("classificacaoId", dados.classificacaoId.toString())
+        dados.classificacaoId.forEach((id) => {
+      formData.append("classificacaoId", id.toString());
+    });
 
     dados.plataformaIds.forEach((id) => {
       formData.append("plataformaIds", id.toString());
@@ -60,6 +59,7 @@ export async function cadastrarJogo(dados: produtoPost) {
     await api.post("Jogo", formData);
     console.log("foi fio");
   } catch (error: any) {
+    console.log("deu erro");
     throw new Error(error.response.data);
   }
 }

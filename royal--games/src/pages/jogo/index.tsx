@@ -40,7 +40,7 @@ const Jogo = () => {
   const [imagem, setImg] = useState<File | null>(null);
 
   const [plataformaSelecionadas, setPlataformasSelecionadas] = useState<number[]>([]);
-  const [classificacaoSelecionadas, setClassificacoes] = useState<number[]>([]);
+  const [classificacaoSelecionadas, setClassificacoesSelecionadas] = useState<number[]>([]);
   const [generosSelecionados, setGenerosSelecionados] = useState<number[]>([]);
 
   const [plataformas, setPlataforma] = useState<Plataforma[]>([]);
@@ -90,7 +90,7 @@ const Jogo = () => {
       
       setNome(jogo.nome);
       setDescricao(jogo.descrição);
-      setClassificacoes(jogo.classificacaoSelecionadas);
+      setClassificacoesSelecionadas(jogo.classificacaoSelecionadas);
       setGenero(jogo.generosSelecionados);
       setPlataforma(jogo.plataformaSelecionadas);
 
@@ -132,7 +132,7 @@ const Jogo = () => {
         preco,
         plataformaIds :plataformaSelecionadas,
         generoIds: generosSelecionados,
-        classificacaoId: classificacaoSelecionadas,
+        classificacaoId: classificacaoSelecionadas
 
       };
       if (telaEditar) {
@@ -143,6 +143,7 @@ const Jogo = () => {
         notificacao("Jogo cadastrado!");
       }
     } catch (error: any) {
+      console.log("faz o L")
       console.log(error.message);
     }
   }
@@ -229,8 +230,8 @@ const Jogo = () => {
                     className={styles.opcoes}
                     value={classificacaoSelecionadas[0]}
                     onChange={(e) =>
-                      setClassificacoes(
-                        Number(e.target.selectedOptions)
+                      setClassificacoesSelecionadas(
+                        [Number(e.target.selectedOptions[0].value)]
                       )
                     }
                   >
