@@ -20,6 +20,7 @@ namespace RoyalGamess.Aplications.Services
         {
             LerClassificacaoDto lerClassificacaoDto = new LerClassificacaoDto()
             {
+                classificacaoId = classificacaoI.ClassificacaoIndicativaId,
                 nomeClassificacao = classificacaoI.Classificacao
             };
 

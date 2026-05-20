@@ -1,0 +1,154 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|c:\\users\\nicol\\music\\api\\royalgames\\royalgamess\\royalgamess\\aplications\\dtos\\jogodto\\lerjogodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|solutionrelative:royalgamess\\aplications\\dtos\\jogodto\\lerjogodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|c:\\users\\nicol\\music\\api\\royalgames\\royalgamess\\royalgamess\\aplications\\dtos\\jogodto\\criarjogodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|solutionrelative:royalgamess\\aplications\\dtos\\jogodto\\criarjogodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|c:\\users\\nicol\\music\\api\\royalgames\\royalgamess\\royalgamess\\aplications\\services\\classificacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|solutionrelative:royalgamess\\aplications\\services\\classificacaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|c:\\users\\nicol\\music\\api\\royalgames\\royalgamess\\royalgamess\\aplications\\dtos\\classificacaodto\\lerclassificacaodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|solutionrelative:royalgamess\\aplications\\dtos\\classificacaodto\\lerclassificacaodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|c:\\users\\nicol\\music\\api\\royalgames\\royalgamess\\royalgamess\\aplications\\services\\generoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|solutionrelative:royalgamess\\aplications\\services\\generoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|c:\\users\\nicol\\music\\api\\royalgames\\royalgamess\\royalgamess\\repositorys\\jogorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|solutionrelative:royalgamess\\repositorys\\jogorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|c:\\users\\nicol\\music\\api\\royalgames\\royalgamess\\royalgamess\\aplications\\regras\\horarioalteracaojogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|solutionrelative:royalgamess\\aplications\\regras\\horarioalteracaojogo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|c:\\users\\nicol\\music\\api\\royalgames\\royalgamess\\royalgamess\\aplications\\dtos\\generodto\\lergenerodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8813D276-965C-357D-725B-7997A934031F}|RoyalGamess\\RoyalGamess.csproj|solutionrelative:royalgamess\\aplications\\dtos\\generodto\\lergenerodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HorarioAlteracaoJogo.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\Regras\\HorarioAlteracaoJogo.cs",
+              "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\Regras\\HorarioAlteracaoJogo.cs",
+              "ToolTip": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\Regras\\HorarioAlteracaoJogo.cs",
+              "RelativeToolTip": "RoyalGamess\\Aplications\\Regras\\HorarioAlteracaoJogo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T22:01:42.029Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CriarJogoDto.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\JogoDto\\CriarJogoDto.cs",
+              "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\DTOs\\JogoDto\\CriarJogoDto.cs",
+              "ToolTip": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\JogoDto\\CriarJogoDto.cs",
+              "RelativeToolTip": "RoyalGamess\\Aplications\\DTOs\\JogoDto\\CriarJogoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T22:22:56.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LerJogoDto.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\JogoDto\\LerJogoDto.cs",
+              "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\DTOs\\JogoDto\\LerJogoDto.cs",
+              "ToolTip": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\JogoDto\\LerJogoDto.cs",
+              "RelativeToolTip": "RoyalGamess\\Aplications\\DTOs\\JogoDto\\LerJogoDto.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAwwBUAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T22:22:40.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClassificacaoService.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\Services\\ClassificacaoService.cs",
+              "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\Services\\ClassificacaoService.cs",
+              "ToolTip": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\Services\\ClassificacaoService.cs",
+              "RelativeToolTip": "RoyalGamess\\Aplications\\Services\\ClassificacaoService.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA5wBYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T22:07:00.645Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LerClassificacaoDto.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\ClassificacaoDto\\LerClassificacaoDto.cs",
+              "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\DTOs\\ClassificacaoDto\\LerClassificacaoDto.cs",
+              "ToolTip": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\ClassificacaoDto\\LerClassificacaoDto.cs",
+              "RelativeToolTip": "RoyalGamess\\Aplications\\DTOs\\ClassificacaoDto\\LerClassificacaoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T22:06:41.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GeneroService.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\Services\\GeneroService.cs",
+              "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\Services\\GeneroService.cs",
+              "ToolTip": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\Services\\GeneroService.cs",
+              "RelativeToolTip": "RoyalGamess\\Aplications\\Services\\GeneroService.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwBUAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T22:05:59.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "JogoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Repositorys\\JogoRepository.cs",
+              "RelativeDocumentMoniker": "RoyalGamess\\Repositorys\\JogoRepository.cs",
+              "ToolTip": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Repositorys\\JogoRepository.cs",
+              "RelativeToolTip": "RoyalGamess\\Repositorys\\JogoRepository.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T22:01:06.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LerGeneroDto.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\GeneroDto\\LerGeneroDto.cs",
+              "RelativeDocumentMoniker": "RoyalGamess\\Aplications\\DTOs\\GeneroDto\\LerGeneroDto.cs",
+              "ToolTip": "C:\\Users\\nicol\\Music\\API\\RoyalGames\\RoyalGamess\\RoyalGamess\\Aplications\\DTOs\\GeneroDto\\LerGeneroDto.cs",
+              "RelativeToolTip": "RoyalGamess\\Aplications\\DTOs\\GeneroDto\\LerGeneroDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T22:04:21.761Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

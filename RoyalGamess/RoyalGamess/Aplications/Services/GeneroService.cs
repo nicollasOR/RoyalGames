@@ -19,6 +19,7 @@ namespace RoyalGamess.Aplications.Services
         {
             LerGeneroDto lerGeneroDto = new LerGeneroDto
             {
+                GeneroId = genero.GeneroId,
                 Nome = genero.Nome
             };
 

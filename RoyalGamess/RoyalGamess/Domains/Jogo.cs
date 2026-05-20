@@ -9,7 +9,7 @@ public partial class Jogo
 
     public string? Nome { get; set; }
 
-    public string? Descrição { get; set; }
+    public string? Descricao { get; set; }
 
     public decimal? Preco { get; set; }
 

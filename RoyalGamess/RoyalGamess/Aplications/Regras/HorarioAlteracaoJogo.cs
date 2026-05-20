@@ -8,7 +8,7 @@ namespace RoyalGamess.Aplications.Regras
         {
             var agora = DateTime.Now.TimeOfDay;
             var abertura = new TimeSpan(10, 0, 0);
-            var fechamento = new TimeSpan(23, 59, 59);
+            var fechamento = new TimeSpan(15, 59, 59);
 
             var estaAberto = agora >= abertura && agora <= fechamento;
             if (estaAberto)

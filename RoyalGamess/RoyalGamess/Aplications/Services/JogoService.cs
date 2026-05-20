@@ -92,7 +92,7 @@ namespace RoyalGamess.Aplications.Services
             {
                 Nome = criarDto.Nome,
                 Preco = criarDto.Preco,
-                Descrição = criarDto.Descricao,
+                Descricao = criarDto.Descricao,
                 Imagem = ImagemParaByte.ConverterImagem(criarDto.Imagem),
                 StatusJogo = true,
                 UsuarioIdFK = usuarioId,
@@ -129,7 +129,7 @@ namespace RoyalGamess.Aplications.Services
                 throw new DomainException("Jogo tem que ter Preco");
 
             jogoBanco.Nome = jogoDto.Nome;
-            jogoBanco.Descrição = jogoDto.Descricao;
+            jogoBanco.Descricao = jogoDto.Descricao;
             jogoBanco.Preco = jogoDto.Preco;
             if (jogoBanco.Imagem != null && jogoBanco.Imagem.Length > 0)
             jogoBanco.Imagem = ImagemParaByte.ConverterImagem(jogoDto.Imagem);

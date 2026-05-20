@@ -97,7 +97,7 @@ namespace RoyalGamess.Repositorys
 
             jogoAtualizar.Nome = jogo.Nome;
             jogoAtualizar.Preco = jogo.Preco;
-            jogoAtualizar.Descrição = jogo.Descrição;
+            jogoAtualizar.Descricao = jogo.Descricao;
 
             if (jogo.Imagem != null && jogo.Imagem.Length > 0)
                 jogoAtualizar.Imagem = jogo.Imagem;

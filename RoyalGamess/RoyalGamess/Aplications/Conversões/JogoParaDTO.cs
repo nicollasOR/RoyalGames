@@ -12,7 +12,7 @@ namespace RoyalGamess.Aplications.Conversões
             {
                 JogoId = jogo.JogoId,
                 Nome = jogo.Nome,
-                Descricao = jogo.Descrição,
+                Descricao = jogo.Descricao,
                 StatusJogo = jogo.StatusJogo ?? true,
                 // StatusJogo = jogo.StatusJogo,
                 plataformaIds = jogo.PlataformaIdFK.Select(id => id.PlataformaId).ToList(),
