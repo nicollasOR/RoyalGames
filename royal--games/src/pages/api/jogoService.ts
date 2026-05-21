@@ -3,17 +3,21 @@ import { api } from "./api";
 type produtoPost = {
   nome: string;
   descricao: string;
-  imagem: File | null;
+  imagemURL: File | null;
   preco: string;
   plataformaIds: number[];
   generoIds: number[];
   classificacaoId: number[];
+
+  plataforma: string[];
+  genero: string[]
+  classificacao: string
 };
 
 interface produtoListagem {
   nome: string;
   descricao: string;
-  imagem: File | null;
+  imagemURL: File | null;
   preco: string;
   plataformaIds: number[];
   generoIds: number[];
@@ -26,8 +30,8 @@ export class jogoDTO_typescripto {
     const formData = new FormData();
     formData.append("nome", dados.nome);
     formData.append("preco", dados.preco);
-    if (dados.imagem) {
-      formData.append("imagem", dados.imagem);
+    if (dados.imagemURL) {
+      formData.append("imagemURL", dados.imagemURL);
     }
     // formData.append("classificacaoId", dados.classificacaoId.toString())
         dados.classificacaoId.forEach((id) => {
@@ -48,7 +52,7 @@ export class jogoDTO_typescripto {
   static toImagemURL(jogo: produtoListagem) {
     return {
       ...jogo,
-      imagem: `${api.defaults.baseURL}${jogo.imagem}`,
+      imagemURL: `${api.defaults.baseURL}${jogo.imagemURL}`,
     };
   }
 }
@@ -73,7 +77,7 @@ export async function listarJogo() {
 
     const jogoLink = jogosAtivos.map((jogo: produtoListagem) => ({
       ...jogo,
-      imagem: `${api.defaults.baseURL}${jogo.imagem}`,
+      imagemURL: `${api.defaults.baseURL}${jogo.imagemURL}`,
     }));
 
     return jogoLink;
@@ -87,7 +91,7 @@ export async function listarJogoPorId(id: number) {
     const response = await api.get("Jogo/" + id);
     const jogoLink = {
       ...response.data,
-      imagem: `${api.defaults.baseURL}${response.data.imagem}`,
+      imagemURL: `${api.defaults.baseURL}${response.data.imagem}`,
     };
     return jogoLink;
   } catch (error: any) {
