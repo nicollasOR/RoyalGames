@@ -18,6 +18,9 @@ import { listarPlataforma } from "../api/plataformaService";
 import { listarGenero } from "../api/generoService";
 import { listarClassificacao } from "../api/classificacaoService";
 import { David_Libre } from "next/font/google";
+import Botoes from "@/components/botoes/botao";
+
+
 interface Classificacao {
   classificacaoId: number;
   nomeClassificacao: string;
@@ -94,26 +97,7 @@ const Jogo = () => {
       setGenero(jogo.generosSelecionados);
       setPlataforma(jogo.plataformaSelecionadas);
 
-      // if(jogo.generoIds)
-      // {
-      //   const generoIds = jogo.generoIds.map((p: any) => typeof p ==="object" ? Number(p.generoIds || p.id) : Number(p))
-      //   setGenerosSelecionados(generoIds)
-      // }
-
-      // if(jogo.plataformaIds)
-      // {
-      //   const plataformaIds = jogo.plataformaIds.map((p: any) => typeof p ==="object" ? Number(p.plataformaIds || p.id) : Number(p))
-      //   setPlataformasSelecionadas(plataformaIds)
-      // }
-
-      // if(jogo.classificacaoId)
-      // {
-      //   const classificacaoIds = Array.isArray(jogo.classificacaoId)
-      //   ? Number(jogo.classificacaoId[0])
-      //   ? Number(jogo.classificacaoId)
-      //   setClassificacoes(classificacaoIds || 0)
-      // }
-    }
+          }
 
     catch(error:any)
     {
@@ -203,11 +187,12 @@ const Jogo = () => {
                     className={styles.opcoes}
                     value={generosSelecionados.map(String)}
                     onChange={(e) => {
-                      const selecionados = Array.from(
-                        e.target.selectedOptions,
-                        (o) => Number(o.value),
-                      );
-                      setGenerosSelecionados(selecionados);
+                      // const selecionados = Array.from(
+                      //   e.target.selectedOptions,
+                      //   (o) => Number(o.value),
+                      // );
+                      // setGenerosSelecionados(selecionados);
+                      setGenerosSelecionados(Array.from(e.target.selectedOptions).map((option) => Number(option.value)))
                     }}
                   >
                     {genero.map((g) => (
@@ -267,7 +252,6 @@ const Jogo = () => {
                         value={plat.plataformaId}
                         key={plat.plataformaId}
                       >
-                        {" "}
                         {plat.nome}
                       </option>
                     ))}
@@ -300,6 +284,7 @@ const Jogo = () => {
             </aside>
           </div>
           <button>Cadastrar</button>
+          {/* <Botoes className="">Confirmar</Botoes> */}
         </form>
       </section>
       {/* <Lista /> */}

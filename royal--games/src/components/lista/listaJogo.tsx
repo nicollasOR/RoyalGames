@@ -6,9 +6,10 @@ import { verificarAutenticacao } from "@/utils/autenticacao";
 import Link from "next/link";
 import { excluirJogo, listarJogo } from "@/pages/api/jogoService";
 import { erro, notificacao } from "@/utils/toast";
+import Jogo from "@/pages/jogo";
 
 type Jogo = {
-  jogo: string;
+  nome: string;
   descricao: string;
   preco: number;
   img: string;
@@ -51,14 +52,17 @@ const Lista = () => {
     listar();
   }, []);
 
-  const jogosFiltrados = jogos
-    .filter((jogo) => jogo.jogo.toLowerCase().includes(pesquisa.toLowerCase()))
-    .sort((a, b) => {
-      if (ordem === "menor_valor") return a.preco - b.preco;
-      else if (ordem === "maior_valor") return b.preco - a.preco;
 
-      return a.jogoId - b.jogoId;
-    });
+  const jogosFiltrados = jogos.filter((joguinhos) => joguinhos.nome.toLowerCase().includes(pesquisa.toLowerCase())).sort((a, b) =>{
+    if(ordem == "menor_valor")
+      return a.preco - b.preco
+    if(ordem == "maior_valor")
+      return b.preco - a.preco
+    
+    return a.jogoId - b.jogoId
+  })
+  console.log("teste abaixo:")
+  console.log(jogosFiltrados)
 
   return (
     <section className={style.jogo}>
@@ -67,7 +71,7 @@ const Lista = () => {
         <hr />
       </div>
       <div className={style.filtros}>
-        <select name="ordem" id="" value={ordem} onChange={(e) => setOrdem(e.target.value)}>
+        <select name="ordem" id="" value={ordem} onChange={(e) => setOrdem(e.target.value)}>Filtrar
           <option value="todos">Todos</option>
           <option value="menor_valor">Menor preço</option>
           <option value="maior_valor">Maior preço</option>
@@ -86,7 +90,7 @@ const Lista = () => {
               jogoId={jogo.jogoId}
               descricao={jogo.descricao}
               img={jogo.img}
-              jogo={jogo.jogo}
+              nome={jogo.nome}
               onDelete={confirmarExclusão}
               preco={jogo.preco}
               usuarioAutenticado={estaAutenticado}

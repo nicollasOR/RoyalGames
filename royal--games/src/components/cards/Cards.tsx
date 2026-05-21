@@ -5,7 +5,7 @@ import { verificarAutenticacao } from "@/utils/autenticacao";
 import Link from "next/link";
 
 type Jogo = {
-  jogo: string;
+  nome: string;
   descricao: string;
   preco: number;
   img: string;
@@ -15,7 +15,7 @@ type Jogo = {
 };
 
 const Cards = ({
-  jogo,
+  nome,
   descricao,
   preco,
   img,
@@ -26,8 +26,9 @@ const Cards = ({
   return (
     <article className={styles.card}>
       <img src={img} alt="" />
-      <span>{jogo}</span>
-      <p>{formatarPreco(preco)}</p>
+      <span>{nome}</span>
+      {/* <p>{formatarPreco(preco)}</p> */}
+      <p>{preco}</p>
       <div className={styles.botoes}>
         
               {
@@ -47,41 +48,4 @@ const Cards = ({
     </article>
   );
 };
-{/*
-  
-  
-  */}
-{/* 
-  
-        <div className={style.botoes}>
-        <span>{formatarPreco(preco)}</span>
-        {usuarioAutenticado && (
-          <>
-            <Link href={"/historico/" + produtoId}>
-              <button>
-                <FontAwesomeIcon
-                  icon={faCircleInfo}
-                  className={style.icone_botao}
-                />
-              </button>
-            </Link>
-            <Link href={"/produto?id=" + produtoId}>
-              <button>
-                <FontAwesomeIcon
-                  icon={faPenToSquare}
-                  className={style.icone_botao}
-                />
-              </button>
-            </Link>
-            <button onClick={() => onDelete(produtoId)}>
-              <FontAwesomeIcon
-                icon={faTrashCan}
-                className={style.icone_botao}
-              />
-            </button>
-          </>
-        )}
-      </div>
-  
-  */}
 export default Cards;
