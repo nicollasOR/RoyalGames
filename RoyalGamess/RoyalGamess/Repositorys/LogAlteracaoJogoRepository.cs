@@ -6,8 +6,8 @@ namespace RoyalGamess.Repositorys
 {
     public class LogAlteracaoJogoRepository : ILogAlteracaoJogoRepository
     {
-        private readonly Royal_GamessContext _context;
-        public LogAlteracaoJogoRepository(Royal_GamessContext context)
+        private readonly Royal_GamesssContext _context;
+        public LogAlteracaoJogoRepository(Royal_GamesssContext context)
         {
             _context = context;
         }

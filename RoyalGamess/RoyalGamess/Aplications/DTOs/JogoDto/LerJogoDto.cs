@@ -7,7 +7,7 @@
 
         public string Nome { get; set; } = null!;
         public string Descricao { get; set; } = null!;
-        public IFormFile Imagem { get; set; }
+        //public IFormFile Imagem { get; set; }
         public decimal Preco { get; set; }
         public bool StatusJogo { get; set; }
         // public bool? StatusJogo { get; set; }
@@ -17,6 +17,8 @@
 
         public List<int> generoIds { get; set; } = new();
         public List<string> Genero { get; set; } = new();
+
+        public string ImagemURL { get; set; }
 
 
         public int? classificacaoId { get; set; }

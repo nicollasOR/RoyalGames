@@ -46,7 +46,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // chamar nossa conex�o com o banco aqui na program
-builder.Services.AddDbContext<Royal_GamessContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddDbContext<Royal_GamesssContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 // Usu�rio
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();

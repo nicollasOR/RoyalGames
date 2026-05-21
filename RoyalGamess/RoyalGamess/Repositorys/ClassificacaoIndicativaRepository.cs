@@ -9,9 +9,9 @@ namespace RoyalGamess.Repositorys
     public class ClassificacaoIndicativaRepository :  IClassificacaoIndicativa
     {
 
-        private readonly Royal_GamessContext _context;
+        private readonly Royal_GamesssContext _context;
 
-        public ClassificacaoIndicativaRepository(Royal_GamessContext context)
+        public ClassificacaoIndicativaRepository(Royal_GamesssContext context)
         {
             _context = context;
         }

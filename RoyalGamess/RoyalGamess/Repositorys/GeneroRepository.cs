@@ -9,9 +9,9 @@ namespace RoyalGamess.Repositorys
     public class GeneroRepository :  IGeneroRepository
     {
 
-        private readonly Royal_GamessContext _context;
+        private readonly Royal_GamesssContext _context;
 
-        public GeneroRepository(Royal_GamessContext context)
+        public GeneroRepository(Royal_GamesssContext context)
         {
             _context = context;
         }

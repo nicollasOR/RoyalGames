@@ -6,8 +6,8 @@ namespace RoyalGamess.Repositorys
 {
     public class PromocaoRepository : IPromocaoRepository
     {
-        private readonly Royal_GamessContext _context;
-        public PromocaoRepository(Royal_GamessContext context)
+        private readonly Royal_GamesssContext _context;
+        public PromocaoRepository(Royal_GamesssContext context)
         {
             _context = context;
         }

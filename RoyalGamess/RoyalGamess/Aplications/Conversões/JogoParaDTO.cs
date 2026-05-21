@@ -21,6 +21,7 @@ namespace RoyalGamess.Aplications.Conversões
                 generoIds = jogo.GeneroIdFK.Select(id => id.GeneroId).ToList(),
                 classificacaoId = jogo.ClassificaçãoIdFK,
                 Classificacao = jogo.ClassificaçãoIdFKNavigation?.Classificacao,
+                ImagemURL = $"jogo/{jogo.JogoId}/imagem", 
 
                 UsuarioId = jogo.UsuarioIdFK,
                 UsuarioEmail = jogo.UsuarioIdFKNavigation?.Email,

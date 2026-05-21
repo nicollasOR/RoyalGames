@@ -7,8 +7,8 @@ namespace RoyalGamess.Repositorys
 {
     public class JogoRepository : IJogoRepository
     {
-        private readonly Royal_GamessContext _context;
-        public JogoRepository(Royal_GamessContext context)
+        private readonly Royal_GamesssContext _context;
+        public JogoRepository(Royal_GamesssContext context)
         {
             _context = context;
         }
@@ -71,19 +71,21 @@ namespace RoyalGamess.Repositorys
             return jogo.Any(jogo => jogo.Nome == nomeJogo);
         }
 
-        public void Adicionar(Jogo jogo, List<int> generoIds, List<int> plataformaIds)
+        public void Adicionar(Jogo jogo, List<int> generoIds, List<int> plataformaIds)//, int classificacaoId)
         {
             List<Genero> generos = _context.Genero.Where(generoAux => generoIds.Contains(generoAux.GeneroId)).ToList();
             List<Plataforma> plataformas = _context.Plataforma.Where(plataformaAux => plataformaIds.Contains(plataformaAux.PlataformaId)).ToList();
+            //ClassificacaoIndicativa? classificacaoId2 = _context.ClassificacaoIndicativa.FirstOrDefault(clasIndi => clasIndi.ClassificacaoIndicativaId == classificacaoId);
 
             jogo.GeneroIdFK = generos;
             jogo.PlataformaIdFK = plataformas;
+            //jogo.ClassificaçãoIdFKNavigation = classificacaoId2;
 
             _context.Jogo.Add(jogo);
             _context.SaveChanges();
         }
 
-        public void Atualizar(Jogo jogo, List<int> generoIds, List<int> plataformaIds)
+        public void Atualizar(Jogo jogo, List<int> generoIds, List<int> plataformaIds)//, int classificacaoId)
         {
             Jogo? jogoAtualizar = _context.Jogo
                .Include(j => j.GeneroIdFK)
@@ -98,6 +100,7 @@ namespace RoyalGamess.Repositorys
             jogoAtualizar.Nome = jogo.Nome;
             jogoAtualizar.Preco = jogo.Preco;
             jogoAtualizar.Descricao = jogo.Descricao;
+            //jogoAtualizar.ClassificaçãoIdFK = classificacaoId;
 
             if (jogo.Imagem != null && jogo.Imagem.Length > 0)
                 jogoAtualizar.Imagem = jogo.Imagem;
@@ -119,6 +122,8 @@ namespace RoyalGamess.Repositorys
             {
                 jogoAtualizar.PlataformaIdFK.Add(plataformaVar);
             }
+
+            
 
             _context.SaveChanges();
 

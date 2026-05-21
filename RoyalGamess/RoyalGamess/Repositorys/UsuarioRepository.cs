@@ -6,8 +6,8 @@ namespace RoyalGamess.Repositorys
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        private readonly Royal_GamessContext _context;
-        public UsuarioRepository(Royal_GamessContext context)
+        private readonly Royal_GamesssContext _context;
+        public UsuarioRepository(Royal_GamesssContext context)
         {
             _context = context;
         }

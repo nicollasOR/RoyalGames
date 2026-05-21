@@ -99,7 +99,7 @@ namespace RoyalGamess.Aplications.Services
                 ClassificaçãoIdFK = criarDto.classificacaoId
             };
 
-            _repository.Adicionar(jogo, criarDto.plataformaIds, criarDto.generoIds);
+            _repository.Adicionar(jogo, criarDto.plataformaIds, criarDto.generoIds);//, criarDto.classificacaoId);
 
             return JogoParaDTO.converterParaDTO(jogo);
 
@@ -137,7 +137,7 @@ namespace RoyalGamess.Aplications.Services
             if (jogoBanco.StatusJogo.HasValue)
                 jogoBanco.StatusJogo = jogoDto.StatusJogo;
 
-            _repository.Atualizar(jogoBanco, jogoDto.plataformaIds, jogoDto.generoIds);
+            _repository.Atualizar(jogoBanco, jogoDto.plataformaIds, jogoDto.generoIds);//, jogoDto.classificacaoId);
             return JogoParaDTO.converterParaDTO(jogoBanco);
         }
 
@@ -146,7 +146,7 @@ namespace RoyalGamess.Aplications.Services
         {
             Jogo jogo = _repository.ObterPorId(id);
             if(jogo == null)
-                throw new DomainException("Usuário não encontrado");
+                throw new DomainException("Jogo não encontrado");
 
             _repository.Remover(id);
         }

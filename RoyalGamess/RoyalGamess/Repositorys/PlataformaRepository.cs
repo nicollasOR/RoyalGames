@@ -6,8 +6,8 @@ namespace RoyalGamess.Repositorys
 {
     public class PlataformaRepository : IPlataformaRepository
     {
-        private readonly Royal_GamessContext _context;
-        public PlataformaRepository(Royal_GamessContext context)
+        private readonly Royal_GamesssContext _context;
+        public PlataformaRepository(Royal_GamesssContext context)
         {
             _context = context;
         }
