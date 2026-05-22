@@ -9,9 +9,9 @@ type produtoPost = {
   generoIds: number[];
   classificacaoId: number[];
 
-  plataforma: string[];
-  genero: string[]
-  classificacao: string
+  // plataforma: string[];
+  // genero: string[]
+  // classificacao: string
 };
 
 interface produtoListagem {

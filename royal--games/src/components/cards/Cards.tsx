@@ -10,7 +10,7 @@ type Jogo = {
   preco: number;
   img: string;
   jogoId: number;
-  onDelete: (jogoId: number) => void;
+  onDelete?: (jogoId: number) => void;
   usuarioAutenticado: boolean;
 };
 
@@ -30,20 +30,20 @@ const Cards = ({
       {/* <p>{formatarPreco(preco)}</p> */}
       <p>{preco}</p>
       <div className={styles.botoes}>
-        
-              {
-        usuarioAutenticado ? (
+        {usuarioAutenticado ? (
           <>
-                <Link href={"/jogo?id=" + jogoId}><button>Editar</button></Link>
-                <button onClick={() => onDelete(jogoId)}>Excluir</button>
+            <Link href={"/jogo?id=" + jogoId}>
+              <button>Editar</button>
+            </Link>
+            <button onClick={() => onDelete?.(jogoId)}>Excluir</button>
           </>
-        )
-        :(
+        ) : (
           <>
-          <Link href={"/detalhe_jogo/" + jogoId}><button>Detalhes</button></Link>
+            <Link href={"/detalhe_jogo/" + jogoId}>
+              <button>Detalhes</button>
+            </Link>
           </>
-        )
-      }
+        )}
       </div>
     </article>
   );

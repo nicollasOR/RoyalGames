@@ -112,7 +112,7 @@ const Jogo = () => {
       const dados = {
         nome,
         descricao,
-        imagem,
+        imagemURL: imagem,
         preco,
         plataformaIds :plataformaSelecionadas,
         generoIds: generosSelecionados,

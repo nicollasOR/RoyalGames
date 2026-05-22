@@ -7,6 +7,9 @@ import Link from "next/link";
 import { excluirJogo, listarJogo } from "@/pages/api/jogoService";
 import { erro, notificacao } from "@/utils/toast";
 import Jogo from "@/pages/jogo";
+import ReactPaginate from "react-paginate";
+import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type Jogo = {
   nome: string;
@@ -23,6 +26,19 @@ const Lista = () => {
   const [ordem, setOrdem] = useState("todos");
   const [pesquisa, setPesquisa] = useState("");
   const [estaAutenticado, setEstaAutenticado] = useState(false);
+  
+  const [primeiroItem, setPrimeiroItem] = useState(0);
+ 
+  const numItem = 6;
+  const ultimoJogo = primeiroItem + numItem;
+  const jogosAtuais = jogos.slice(primeiroItem, ultimoJogo);
+  const paginas = Math.ceil(jogos.length / numItem);
+
+  const alterarPagina = (event: any) =>{
+    const newOffSet = (event.selected * numItem) % jogos.length;
+
+    setPrimeiroItem(newOffSet)
+  }
 
   async function listar() {
     try {
@@ -32,7 +48,7 @@ const Lista = () => {
       alert(error.message);
     }
   }
-  async function confirmarExclusão(jogoId: number) {
+  async function confirmarExclusão(jogoId: number) {    
     try {
       await excluirJogo(jogoId);
       setJogos((listaAtual) =>
@@ -52,17 +68,18 @@ const Lista = () => {
     listar();
   }, []);
 
+  const jogosFiltrados = jogos
+    .filter((joguinhos) =>
+      joguinhos.nome.toLowerCase().includes(pesquisa.toLowerCase()),
+    )
+    .sort((a, b) => {
+      if (ordem == "menor_valor") return a.preco - b.preco;
+      if (ordem == "maior_valor") return b.preco - a.preco;
 
-  const jogosFiltrados = jogos.filter((joguinhos) => joguinhos.nome.toLowerCase().includes(pesquisa.toLowerCase())).sort((a, b) =>{
-    if(ordem == "menor_valor")
-      return a.preco - b.preco
-    if(ordem == "maior_valor")
-      return b.preco - a.preco
-    
-    return a.jogoId - b.jogoId
-  })
-  console.log("teste abaixo:")
-  console.log(jogosFiltrados)
+      return a.jogoId - b.jogoId;
+    });
+  console.log("teste abaixo:");
+  console.log(jogosFiltrados);
 
   return (
     <section className={style.jogo}>
@@ -71,12 +88,24 @@ const Lista = () => {
         <hr />
       </div>
       <div className={style.filtros}>
-        <select name="ordem" id="" value={ordem} onChange={(e) => setOrdem(e.target.value)}>Filtrar
+        <select
+          name="ordem"
+          id=""
+          value={ordem}
+          onChange={(e) => setOrdem(e.target.value)}
+        >
+          Filtrar
           <option value="todos">Todos</option>
           <option value="menor_valor">Menor preço</option>
           <option value="maior_valor">Maior preço</option>
         </select>
-        <input type="text" name="Pesquisa" placeholder="Pesquisar" value={pesquisa} onChange={(e) => setPesquisa(e.target.value)} />
+        <input
+          type="text"
+          name="Pesquisa"
+          placeholder="Pesquisar"
+          value={pesquisa}
+          onChange={(e) => setPesquisa(e.target.value)}
+        />
         <div className={style.botoes}>
           <button>Menor preço</button>
           <button>Categoria</button>
@@ -84,7 +113,7 @@ const Lista = () => {
       </div>
       <ul className={style.lista_jogo}>
         {jogosFiltrados.length > 0 ? (
-          jogosFiltrados.map((jogo) => (
+          jogosAtuais.map((jogo) => (
             <Cards
               key={jogo.jogoId}
               jogoId={jogo.jogoId}
@@ -101,19 +130,23 @@ const Lista = () => {
         )}
       </ul>
       <nav className={style.navegacao}>
-        <button className={style.navegacao_botao}>
-          <img src="../svg/seta-esquerda.svg" alt="" />
-        </button>
         <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel={<FontAwesomeIcon icon={faChevronRight} />}
+            previousLabel={<FontAwesomeIcon icon={faChevronLeft} />}
+            onPageChange={alterarPagina}
+            pageRangeDisplayed={paginas}
+            pageCount={paginas}
+            renderOnZeroPageCount={null}
+            // containerClassName={styles.paginacao}
+            // pageClassName={styles.pagina_item}
+            // pageLinkClassName={styles.pagina_link}
+            // previousClassName={styles.pagina_item}
+            // nextClassName={styles.pagina_item}
+            // activeClassName={styles.ativo}
+          />
         </ul>
-        <button className={style.navegacao_botao}>
-          <img src="../svg/seta-direita.svg" alt="" />
-        </button>
       </nav>
     </section>
   );
