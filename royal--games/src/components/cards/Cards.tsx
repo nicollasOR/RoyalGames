@@ -8,7 +8,7 @@ type Jogo = {
   nome: string;
   descricao: string;
   preco: number;
-  img: string;
+  imagemURL: string;
   jogoId: number;
   onDelete?: (jogoId: number) => void;
   usuarioAutenticado: boolean;
@@ -18,17 +18,17 @@ const Cards = ({
   nome,
   descricao,
   preco,
-  img,
+  imagemURL,
   jogoId,
   onDelete,
   usuarioAutenticado,
 }: Jogo) => {
   return (
     <article className={styles.card}>
-      <img src={img} alt="" />
+      <Link href={"/detalhe_jogo/" + jogoId}><img src={imagemURL} alt=""/></Link>
       <span>{nome}</span>
-      {/* <p>{formatarPreco(preco)}</p> */}
-      <p>{preco}</p>
+      <p>{formatarPreco(preco)}</p>
+      {/* <p>{preco}</p> */}
       <div className={styles.botoes}>
         {usuarioAutenticado ? (
           <>

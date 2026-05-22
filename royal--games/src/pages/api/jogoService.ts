@@ -29,14 +29,12 @@ export class jogoDTO_typescripto {
   static toFormData(dados: produtoPost): FormData {
     const formData = new FormData();
     formData.append("nome", dados.nome);
+    formData.append("descricao", dados.descricao);
     formData.append("preco", dados.preco);
     if (dados.imagemURL) {
       formData.append("imagemURL", dados.imagemURL);
     }
     // formData.append("classificacaoId", dados.classificacaoId.toString())
-        dados.classificacaoId.forEach((id) => {
-      formData.append("classificacaoId", id.toString());
-    });
 
     dados.plataformaIds.forEach((id) => {
       formData.append("plataformaIds", id.toString());
@@ -44,8 +42,10 @@ export class jogoDTO_typescripto {
     dados.generoIds.forEach((id) => {
       formData.append("generoIds", id.toString());
     });
-    formData.append("descricao", dados.descricao);
 
+    dados.classificacaoId.forEach((id) => {
+      formData.append("classificacaoId", id.toString());
+    });
     return formData;
   }
 
@@ -108,12 +108,10 @@ export async function excluirJogo(jogoId: number) {
 }
 
 export async function editarJogo(jogoId: number, dados: produtoPost) {
-    try {
-      const formDatas = jogoDTO_typescripto.toFormData(dados);
-        await api.put("Jogo/" + jogoId, formDatas)
-    }
-    catch (error: any) {
+  try {
+    const formDatas = jogoDTO_typescripto.toFormData(dados);
+    await api.put("Jogo/" + jogoId, formDatas);
+  } catch (error: any) {
     throw new Error(error.response.data);
   }
-    
 }

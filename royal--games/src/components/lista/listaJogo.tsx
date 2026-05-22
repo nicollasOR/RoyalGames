@@ -5,18 +5,21 @@ import { formatarPreco } from "@/utils/formatacao";
 import { verificarAutenticacao } from "@/utils/autenticacao";
 import Link from "next/link";
 import { excluirJogo, listarJogo } from "@/pages/api/jogoService";
-import { erro, notificacao } from "@/utils/toast";
+import { erro, notificacao, ToastconfirmarExclusao } from "@/utils/toast";
 import Jogo from "@/pages/jogo";
 import ReactPaginate from "react-paginate";
-import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type Jogo = {
+  jogoId: number;
   nome: string;
   descricao: string;
   preco: number;
-  img: string;
-  jogoId: number;
+  imagemURL: string;
   onDelete: (jogoId: number) => void;
   usuarioAutenticado: boolean;
 };
@@ -26,19 +29,19 @@ const Lista = () => {
   const [ordem, setOrdem] = useState("todos");
   const [pesquisa, setPesquisa] = useState("");
   const [estaAutenticado, setEstaAutenticado] = useState(false);
-  
+
   const [primeiroItem, setPrimeiroItem] = useState(0);
- 
+
   const numItem = 6;
   const ultimoJogo = primeiroItem + numItem;
   const jogosAtuais = jogos.slice(primeiroItem, ultimoJogo);
   const paginas = Math.ceil(jogos.length / numItem);
 
-  const alterarPagina = (event: any) =>{
+  const alterarPagina = (event: any) => {
     const newOffSet = (event.selected * numItem) % jogos.length;
 
-    setPrimeiroItem(newOffSet)
-  }
+    setPrimeiroItem(newOffSet);
+  };
 
   async function listar() {
     try {
@@ -48,9 +51,11 @@ const Lista = () => {
       alert(error.message);
     }
   }
-  async function confirmarExclusão(jogoId: number) {    
+  async function confirmarExclusão(jogoId: number) {
+    // ToastconfirmarExclusao(async () => {
     try {
       await excluirJogo(jogoId);
+      alert("oi")
       setJogos((listaAtual) =>
         listaAtual.map((jogos) =>
           jogos.jogoId === jogoId ? { ...jogos, statusJogo: false } : jogos,
@@ -61,6 +66,7 @@ const Lista = () => {
     } catch (error: any) {
       erro(error.message);
     }
+    // })
   }
 
   useEffect(() => {
@@ -118,7 +124,7 @@ const Lista = () => {
               key={jogo.jogoId}
               jogoId={jogo.jogoId}
               descricao={jogo.descricao}
-              img={jogo.img}
+              imagemURL={jogo.imagemURL}
               nome={jogo.nome}
               onDelete={confirmarExclusão}
               preco={jogo.preco}
